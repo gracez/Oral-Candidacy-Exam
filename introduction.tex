@@ -2,36 +2,36 @@
 \section{Introduction}
 \label{sec:intro}
 
-A \textbf{tipping point} or \textbf{critical transition} occurs in a dynamical system when a small perturbation to system conditions causes an abrupt overall shift in qualitative behavior. This informal concept is often understood as a local bifurcation in a dynamical system, but may also correspond to other dynamical behaviors such as global bifurcations, perturbations pushing a state variable across the boundary between two basins of attraction, or rate-induced tipping behavior. 
-
-Empirically, tipping points have been studied in a wide range of contexts, including 
+A \textbf{tipping point} or \textbf{critical transition} occurs in a dynamical system when a small perturbation to system conditions causes an abrupt overall shift in qualitative behavior. 
 %
+Empirically, tipping points have been studied in contexts as diverse as
 Earth's climate \cite{lentonTippingElementsEarth2008, dakosSlowingEarlyWarning2008a}, 
-%
 emerging infectious diseases \cite{brettDynamicalFootprintsEnable2020}, 
-%
 aquatic and land ecosystems \cite{schefferCatastrophicShiftsEcosystems2001a, carpenterRisingVarianceLeading2006}, 
-%
-the onset of medical health conditions \cite{mcsharryPredictionEpilepticSeizures2003, venegasSelforganizedPatchinessAsthma2005}, 
-%
+the onset of medical health states \cite{mcsharryPredictionEpilepticSeizures2003, venegasSelforganizedPatchinessAsthma2005}, 
 socio-economic systems \cite{ginkelClimateChangeInduced2020}, 
-%
 and more \cite{georgeEarlyWarningSignals2021, schefferEarlywarningSignalsCritical2009a}. 
 %
-%
-Since critical transitions often represent a shift into an undesirable or catastrophic regime, and since such transitions may not be easily or at all reversible \cite{albrichClimateChangeCauses2020, chenImperfectVaccineHysteresis2019, lucariniThermodynamicAnalysisSnowball2010}, it is of utmost interest to anticipate them before they occur, in order to improve the odds of prevention. 
-%
-As pressures exerted by modern day anthropogenic practices on the Earth grow in magnitude and complexity, threatening physical, ecological, and social systems on all scales with unprecedented forms of change, this goal becomes even more pressing. 
-%
-Unfortunately, in complex real world systems, the conditions under which a critical transition occurs, and the underlying mechanisms driving the approach to transition are usually extremely difficult to characterize.
+Since critical transitions often represent a shift into an undesirable or catastrophic regime, and since such transitions may not be easily or at all reversible \cite{albrichClimateChangeCauses2020, chenImperfectVaccineHysteresis2019, lucariniThermodynamicAnalysisSnowball2010}, it is of pressing interest to anticipate them before they occur, in order to inform management strategies and improve the odds of prevention. Unfortunately, in complex real world systems, the conditions under which a critical transition occurs, and the underlying mechanisms driving the approach to transition are usually extremely difficult to characterize.
 
-Hence, there is particular interest in generic mathematical signals that can warn of impending tipping in a wide variety of systems without reference to specific underlying mechanisms. 
-%
-Such \textbf{early warning signals} have been most commonly studied as precursors of local codimension-1 bifurcations of ODEs, where they are based on \textbf{critical slowing down}, a phenomenon which manifests as the bifurcation parameter gradually nears its critical value \cite{schefferEarlywarningSignalsCritical2009a}.
-% 
-Roughly speaking, the resilience of the system gradually drops, and this results in certain detectable statistical trends over time -- in particular, gradually increasing variance and auto-correlation in the system state. 
-%In the context of local codimension-1 bifurcations and critical slowing down, the term resilience refers specifically to the dominant eignvalue of the Jacobian at the stable rest point, or what is known in the ecology(?) literature as \textbf{asymptotic resilience}. 
-%
+As a result, there is particular interest in generic mathematical signals that can warn of impending tipping in a wide variety of systems without reference to specific underlying mechanisms. Such \textbf{early warning signals} have been most commonly studied as precursors of local codimension-1 bifurcations of ODEs, where they are based on the phenomenon of \textbf{critical slowing down} \cite{schefferEarlywarningSignalsCritical2009a}. Roughly speaking, as the bifurcation parameter gradually nears its critical value, the resilience of the system drops (becoming slower to recover from perturbations), and this produces certain detectable statistical trends over time. In the context of critical slowing down, the term resilience refers specifically to what is known in the ecology literature as \textbf{asymptotic resilience}. In section \ref{sec:resilience}, we review asymptotic resilience, and also other quantitative definitions of resilience. In section \ref{sec:csd}, we summarize the theory of critical slowing down. 
+
+Early warning signals derived from critical slowing down are a powerful tool for anticipating critical transitions, , and their usefulness has already been demonstrated in numerous empirical contexts, including \todo{citations}. But a major limitation is their assumption that the system experiences only small, infrequent perturbations that do not drive the system state very far from equilibrium and that leave sufficient time for recovery in between disturbances. In particular, there is a neglect of transient behavior within the domain of attraction but potentially far from the equilibrium. Such transient states can arise from large, closely repeated, or continual disturbances, as are common in real world ecological systems.  
+
+In section \ref{sec:transient} 
+
+
+
+
+
+
+
+
+%Kate: 
+%"Ecological modelers commonly quantify resilience—roughly, a system’s capacity to absorb change and disturbance while maintaining its basic structure and function [31]—in terms of a system’s invariant sets. Some use eigenvalues of linearization at an attracting equilibrium, which measure resilience to small perturba- tions in terms of characteristic return times [23]. Others, concerned with resilience to potentially large perturbations, measure the size of a domain of attraction [12], e.g. via n-dimensional domain volume [18] or distance from attractor to domain boundary [2]. Both eigenvalues and domain size lack information regarding transient dynamics within a domain of attraction, so neither fully reveals how a system will respond to continuous disturbances that drive the state away from invariant sets."
+
+
+
 
 
 
