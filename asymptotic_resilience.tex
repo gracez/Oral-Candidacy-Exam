@@ -1,0 +1,19 @@
+\subsection{Asymptotic Resilience}
+
+The most commonly used definition of resilience in theoretical ecology represents long-term return rates to a stable point equilibrium, and is measured by the dominant eigenvalue of linearization. 
+
+\begin{definition}
+	\label{def:asymp}
+	Suppose that $x_\ast$ is a stable rest point of the ODE (\ref{eqn:ode}). That is, $f(x_\ast) = 0$, and $Re(\lambda) < 0$ for all $\lambda \in spec(\textbf{A})$, where $\textbf{A} = Df(x_\ast)$ is the Jacobian. Let $\lambda_1(\textbf{A})$ be the eigenvalue with largest (closest to 0) real part. 
+	%
+	The \textbf{asymptotic resilience} of the system at that equilibrium is $Re(\lambda_1(\textbf{A}))$. \( \qed \)
+\end{definition}
+
+For the linear system $x'= \textbf{A}x$, the asymptotic resilience provides a lower bound on the rate at which trajectories approach equilibrium. 
+\todo{explain more}
+
+For nonlinear systems, the Stable Manifold Theorem implies 
+that for any $\alpha$ such that $Re(\lambda_1) < \alpha < 0$, there exists a constant $C$ and a neighborhood $V \ni x_\ast$ such that  $|\varphi(t,x_0)| \leq Ce^{\alpha t}$ for all $x_0 \in V$.
+\todo{maybe show how to derive this from Stable Manifold Theorem}
+
+Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.

@@ -1,9 +1,9 @@
 \section{Resilience Quantification}
 \label{sec:resilience}
 
-The concept of resilience differs between authors and disciplines, and an abundance of quantifications have been proposed. Loosely, resilience refers to the capacity for a system to retain its overall qualitative structure in the face of disturbances. 
+The concept of resilience differs between authors and disciplines, and an abundance of quantification approaches have been proposed. Loosely, resilience refers to the capacity for a system to retain its overall qualitative structure in the face of disturbances. 
 %
-In this section, we define asymptotic resilience, reactivity, and intensity of attraction mathematically. 
+In this section, we define asymptotic resilience, reactivity, and intensity of attraction. 
 %
 For some other definitions of resilience that we do not cover, see \cite{meyerMathematicalReviewResilience2016}.
 
@@ -18,62 +18,11 @@ Let $U \subset \mathbb{R}^n$ be open, and suppose that $f : U \to \mathbb{R}^n$.
 
 and let $\varphi: \mathbb{R} \times U \to U$ be the associated local flow, so that $\varphi(t,x_0) = x(t)$ solves the ODE with initial condition $x(0) = x_0$.
 
-\subsection{Asymptotic Resilience}
+\input{asymptotic_resilience}
 
- The most commonly used definition of resilience in theoretical ecology represents long-term return rates to a point equilibrium, and is measured by the dominant eigenvalue of linearization. 
- 
- \begin{definition}
- 	  Suppose that $x_\ast$ is a stable rest point of the ODE (\ref{eqn:ode}). That is, $f(x_\ast) = 0$, and $Re(\lambda) < 0$ for all $\lambda \in spec(\textbf{A})$, where $\textbf{A} = Df(x_\ast)$ is the Jacobian. Let $\lambda_1$ be the eigenvalue of $\textbf{A}$ with largest (closest to 0) real part. 
- 	  %
- 	  The \textbf{asymptotic resilience} of the system at that equilibrium is $Re(\lambda_1)$. \( \qed \)
- \end{definition}
+\input{reactivity}
 
-For the linear system $x'= \textbf{A}x$, the asymptotic resilience provides a lower bound on the rate at which trajectories approach equilibrium. 
-\todo{explain more}
-
-For nonlinear systems, the Stable Manifold Theorem implies 
-that for any $\alpha$ such that $Re(\lambda_1) < \alpha < 0$, there exists a constant $C$ and a neighborhood $V \ni x_\ast$ such that  $|\varphi(t,x_0)| \leq Ce^{\alpha t}$ for all $x_0 \in V$.
-\todo{maybe show how to derive this from Stable Manifold Theorem}
-
- 
- Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core of critical slowing down, explained further in section \ref{sec:csd}.
-
-\subsection{Reactivity}
-Eigenvalues govern the long-term rate of recovery; however, in the short term, perturbations can initially be amplified before decaying. Asymptotic resilience provides no information about this transient behavior. Because of this shortcoming, an alternative measure of system response to perturbations was introduced in \cite{neubertAlternativesResilienceMeasuring1997a}. 
-
-\begin{definition}
-	
-\end{definition}
-
-\todo{add figure with example of positive reactivity}
-
-\subsection{Intensity of Attraction}
-
-Next, we discuss intensity of attraction, a definition introduced by Katherine Meyer in her PhD thesis \cite{meyerMetricPropertiesAttractors2019}. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\input{intensity}
 
 
 
