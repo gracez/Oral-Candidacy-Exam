@@ -48,7 +48,7 @@
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{principle}[theorem]{Principle}
 
-\usepackage{graphicx, color}
+\usepackage{graphicx, color, caption}
 \graphicspath{{fig/}}
 
 %\usepackage[linesnumbered,ruled,vlined,commentsnumbered]{algorithm2e} % use algorithm2e for typesetting algorithms
@@ -63,10 +63,12 @@
 
 \begin{document}
 	\maketitle
+	\thispagestyle{empty} %remove page number from title page
 	\tableofcontents
 	
-	
     \newpage	
+    \setcounter{page}{1} %restart page numbering from 1 after title page
+    
     \input{introduction}
     
     \input{resilience}
