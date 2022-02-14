@@ -1,11 +1,64 @@
 \subsection{Intensity of Attraction}
 
-The definitions of asymptotic resilience and reactivity both require linearizing at a point attractor. In contrast, intensity of attraction, introduced by Katherine Meyer in her PhD thesis \cite{meyerMetricPropertiesAttractors2019}, measures resilience for any attractor, and captures metric information across its entire basin of attraction rather than replacing the nonlinear dynamics with a local approximation. 
+Asymptotic resilience notably relies on linearizing at a point attractor. In contrast, intensity of attraction, introduced by Katherine Meyer in her PhD thesis \cite{meyerMetricPropertiesAttractors2019}, measures resilience not only for points but also for any other type of attractor. Even more importantly, it captures metric information across the entire basin of attraction rather than simplifying the phase space to a locally topologically equivalent approximation. We now review the necessary background and define intensity of attraction. 
 
-Define attractor
+First, the idea of perturbation is represented by a control function added to an underlying vector field. We assume that the control function $$g: I \subset \mathbb{R} \to \mathbb{R}^n$$ is taken from the space of essentially bounded (i.e. bounded except on a set of measure 0) measurable functions $L^\infty (I,\mathbb{R}^n)$, where the norm is 
+$$||g||_\infty = \inf\{C \geq 0  :  ||g(x)|| \leq C  \text{ for almost every } x \in I \}.$$ 
+We also assume $g$ is locally integrable (i.e. integrable on every compact subset of its domain $I$). 
 
-Define control
+\begin{definition}
+	A \textbf{bounded control system} \todo{is this ok terminology?} is a non-autonomous ODE 
+	\begin{equation}
+		\label{eqn:control_ode}x' = f(x) + g(t)
+	\end{equation}
+	where $f: U \subset \mathbb{R}^n \to \mathbb{R}^n$ is locally Lipschitz, $g \in L^\infty (I,\mathbb{R}^n)$ is locally integrable, and its norm $||g||_\infty$ is finite. \todo{how can $g$ have infinite norm and be locally integrable? do i need this as a separate condition?} \qed
+\end{definition}
 
-Define reachable sets
+Because the right hand side $f(x) + g(t)$ may be a discontinuous function, solutions $x(t)$ of the ODE are considered in an extended sense, which is that $x'(t) = f(x) + g(t) \text{ almost everywhere.}$ The conditions on $g$ are enough to guarantee local existence and uniqueness of solutions in such a sense. First, the hypotheses of Caratheodory's theorem are satisfied, establishing existence. Second, boundedness of $g$ guarantees Lipschitz continuity (local if $f$ is locally Lipschitz, global if $f$ is globally Lipschitz), thereby implying uniqueness. 
 
-Define intensity of attraction
+As a result of well-defined solutions, we can extend the standard local flow notation to the bounded control setting. Fixing an underlying vector field $f$, we will denote as follows the flow obtained by applying a choice of perturbation $g$.
+
+\begin{definition} 
+	$\varphi_g(t, x_0): D \subset \mathbb{R} \times U \to U$ is the local flow defined by $$\varphi_g(t, x_0) = x(t)$$ where $x(t)$ solves in the extended sense the ODE (\ref{eqn:control_ode}), with initial condition $x(0) = x_0$. \qed
+\end{definition}
+
+Next, intensity of attraction considers not just one single control function, but entire families of control functions, where every function in a family is bounded by the same constant $r$. 
+
+\begin{definition}
+	Denote by $B_r \subset L^\infty[I, \mathbb{R}^n]$ the set of control functions bounded above by $r$:
+	$$B_r = \{g  : ||g||_\infty < r\}$$ \qed
+\end{definition}
+
+Supposing that vector field perturbations, such as environmental forces, or human-designed control, are limited by some ceiling on magnitude, $B_r$ can be thought of as a collection of all possible perturbations. 
+
+%Then, again fixing an underlying vector field $f$, the collection of all possible perturbed trajectories can be captured by the following notation.
+
+%\begin{definition} 
+%	\begin{align*}
+%		\Psi_{r} = \{ 
+%		(a, b, T) : ~&\exists
+%		\text{ a control function } 
+%		g \in B_r \text{ such that some solution } x:[0,T] \to \mathbb{R}\\
+%		& \text{ of the associated bounded control system }
+%		x' = f(x) + g(t)\\
+%		& \text{ has endpoints }
+%		x(0) = a, x(T) = b
+%		\}
+%	\end{align*} \qed
+%\end{definition}
+
+This leads into the notion of all possible states reachable in forward time, under control bounded by $r$, and beginning from some arbitrary initial set. 
+
+\begin{definition}
+	Consider $S\subset  U$. The \textbf{reachable set} of $S$ under $r$-bounded control is
+	$$R_r(S) =  \bigcup\limits_{g \in B_r} \bigcup\limits_{x_0 \in S} \bigcup\limits_{t \geq 0}  \varphi_g(t,x_0)$$ \qed
+\end{definition}
+
+Finally, we are ready to define intensity of attraction, which captures the idea of the smallest magnitude of control necessary in order to escape from (all compact subsets \todo{why compact subsets?} of) a basin of attraction:
+
+\begin{definition}
+	If $A$ is an attractor of $x' = f(x)$, then its \textbf{intensity of attraction} is 
+	$$intensity(A) = \sup\{ r \geq 0 ~|~ R_r(A) \subset K \subset basin(A), \text{ for some compact }K \}$$ \qed
+\end{definition}
+
+\todo{add exampl?}

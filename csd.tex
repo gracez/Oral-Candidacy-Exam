@@ -1,20 +1,66 @@
 \section{Critical Slowing Down}
 \label{sec:csd}
 
-this results in certain detectable statistical trends over time -- in particular, gradually increasing variance and auto-correlation in the system state
+Asymptotic resilience helps determine a bound on the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, recovery typically becomes slower when closer to the verge of bifurcation. This is the core idea of critical slowing down. %, explained further in this section. 
+
+%In this section, I summarize the theory of critical slowing down and the associated early warning signals of critical transitions that arise. 
+%
+%Such early warning signals have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear in the moments leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
+
+%Roughly, when an ODE approaches a tipping point (specifically, a local bifurcation) where an attracting rest point destabilizes, the rest point gradually loses asymptotic resilience, becoming slower to recover from small perturbations. Since real world systems are naturally perturbed all the time, this loss of asymptotic resilience ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \todo{ref figure}).
+
+%\todo{insert figure}
+
+%Formally, critical slowing down and its associated early warning signals can be explained as in the following subsections. 
+
+First, we briefly review the necessary background on (one parameter a.k.a. co-dimension one) local bifurcations. For a detailed treatment of local bifurcation theory, see a reference such as \todo{cite Chicone}. %For the purposes of this paper, we will focus on saddle-node (a.k.a fold) %(transcritical and pitchfork?) and Hopf bifurcations, while skipping over much of the preliminary theory. 
 
 \subsection{Local Bifurcation}
 
+Consider a parameterized family of ODEs
+%
+\begin{equation}
+	x' = f(x, p)
+\end{equation}
+%
+$f: \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}^n$. Here, $x$ represents state variables, while $p$ represents a parameter. 
+
+Assume that there is a rest point $f(x_0,p_0) = 0$ for some value of the parameter $p = p_0$. Also suppose the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic.
+%
+%If the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic, then within a neighborhood of $x_0$ the dynamics are topologically conjugate to those of a linear ODE. 
+%
+Because all its eigenvalues are nonzero, $\mathbf{A}$ is an invertible transformation, and the Implicit Function Theorem applies to $f$. This produces a curve $p \to c(p)$ in $\mathbb{R}^n$, defined locally for $p \in [p_0-\epsilon, p_0 + \epsilon]$, such that $c(p_0) = x_0$ and $f(c(p), p) = 0$. 
+
+In other words, if the value of the parameter is adjusted slightly, there is still a rest point at $c(p)$. Further, since the eigenvalues of $\textbf{A}$ are continuous with respect to $x$ and $p$, then the rest point $(c(p), p)$ for $p$ sufficiently close to $p_0$ is stable if and only if $(x_0,p_0)$ was stable. Hence, it is clear that the only way for a very small change in parameter value to lead to a loss of a stable rest point is if $\mathbf{A}$ is non-hyperbolic. Let us focus on that case.
+
+\begin{definition}
+	A \textbf{local bifurcation} occurs at ${\displaystyle (x_{0}, p_{0})}$ if the Jacobian matrix ${\displaystyle {\mathbf{D}f(x_{0},p _{0})}}$ has an eigenvalue with zero real part. Note this could either be a real eigenvalue $\lambda = 0$ or it could be a pair of imaginary eigenvalues $\lambda = \pm \omega i$. If $\textbf{A}$ has a real eigenvalue $\lambda = 0$, a \textbf{saddle-node} or \textbf{fold} bifurcation occurs. If $\textbf{A}$ has a pair of imaginary eigenvalues $\lambda = \pm \omega i$, a \textbf{Hopf} bifurcation occurs. \qed
+\end{definition}
+
+Note that the definition of saddle-node bifurcation here includes what are commonly termed transcritical and pitchfork bifurcations. \todo{clarify the relationship and the definitions here. }
+
+
+Examples of bifurcation types, normal forms
+
+Subcritical and supercritical.
+
 \subsection{Critical Slowing Down}
+
+From the Stable Manifold Theorem (section \todo{ref}), we know that trajectories beginning sufficiently close to a stable rest point approach it at a rate bounded exponentially. In particular, for any $Re(\lambda_1) < L < 0$ there is some constant $C >0$ such that
+$$|\phi_t(x)| \leq Ce^{Lt}|x|$$
+
+
+Formal derivation (how to handle the constant C in front of the recovery rate bound?)
+
+Example: normal form for transcritical or saddle node bifurcation
 
 \subsection{Early Warning Signals}
 
-\subsection{Limitations}
+Roughly, when an ODE approaches a tipping point (specifically, a local bifurcation) where an attracting rest point destabilizes, the rest point gradually loses asymptotic resilience, becoming slower to recover from small perturbations. Since real world systems are naturally perturbed all the time, this loss of asymptotic resilience ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \todo{ref figure}).
+
+\todo{insert figure}
+
+Formal derivation of variance and auto-correlation after a small shock of size epsilon? (how?)
+
+%\subsection{Limitations}
 	
-Early warning signals derived from critical slowing down are a powerful tool for anticipating critical transitions, and their usefulness has already been demonstrated in numerous empirical contexts, including \todo{citations}. However, they have at least a few significant limitations. 
-%
-First, being based on a linear approximation at a stable equilibrium, they are relevant only to small perturbations that do not move the system state very far from equilibrium. 
-%
-Second, being a measure of long term rates of return to equilibrium, they (1) may overlook short term behavior that occurs immediately after the perturbation and (2) are relevant only to infrequent perturbations, so that the system has enough time to recover in between disturbances. In particular, they are not reliable in cases of closely repeating or continual disturbances, as are common in real world ecological systems. 
-%
-Third, they specifically precede local bifurcations, while the informal tipping point concept may correspond to other dynamical behaviors such as global bifurcations, perturbations pushing a state variable across the boundary between two basins of attraction, or rate-induced tipping behavior. 

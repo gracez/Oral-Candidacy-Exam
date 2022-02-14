@@ -1,25 +1,69 @@
 \section{Resilience Quantification}
 \label{sec:resilience}
 
-The concept of resilience differs between authors and disciplines, and an abundance of quantification approaches have been proposed. Loosely, resilience refers to the capacity for a system to retain its overall qualitative structure in the face of disturbances. 
+Loosely, resilience refers to the capacity for a system to retain its overall qualitative structure in the face of disturbances. Its precise definition differs between authors and disciplines; an abundance of approaches to quantifying resilience have been proposed. 
 %
-In this section, I define asymptotic resilience, reactivity, and intensity of attraction. 
+In this section, I define asymptotic resilience and intensity of attraction. 
 %
-For some other definitions of resilience that I do not cover, see \cite{meyerMathematicalReviewResilience2016}.
+For a review of other mathematical definitions of resilience that I do not cover, see \cite{meyerMathematicalReviewResilience2016}.
 
 
-
-Let $U \subset \mathbb{R}^n$ be open, and suppose that $f : U \to \mathbb{R}^n$. Consider a system of ordinary differential equations 
+\subsection{Preliminaries}
+Let $U \subset \mathbb{R}^n$ be open, and assume that $f : U \to \mathbb{R}^n$ is locally Lipschitz continuous. Consider a system of ODEs 
 
 \begin{equation}
 	\label{eqn:ode}
 	x' = f(x)
 \end{equation}
 
-and let $\varphi: \mathbb{R} \times U \to U$ be the associated local flow, so that $\varphi(t,x_0) = x(t)$ solves the ODE with initial condition $x(0) = x_0$.
+and let $\varphi: D \subset \mathbb{R} \times U \to U$ be the associated local flow, so that $\varphi(t,x_0) = x(t)$ solves the ODE (i.e. $x'(t) = f(x(t))$), with initial condition $x(0) = x_0$. 
+
+In many contexts, $f$ is globally Lipschitz continuous, in which case trajectories are defined for as long as they remain within $U$. If no trajectories leave $U$, then $\varphi$ is a global flow defined for all $t \in \mathbb{R}$. In this paper we will assume for the sake of simplicity that the flow is defined on any time domain of interest. 
+
+There are also a couple of notational conveniences we will take. For a flow $\varphi: \mathbb{R} \times U \to U$, we will denote the time $t$ map as $\varphi_t: U \to U$. We will also naturally extend its definition to allow set-valued inputs $S\subset U$ as follows: $$\varphi_t(S) = \{x\in U ~| ~\varphi_t(x_0) = x \text{ for some } x_0 \in S\}.$$
+
+Two central objects of study in this paper is are attractors and their associated domains, or basins of attraction. An attractor characterizes the eventual behavior approached by the system over time (or at least the part of the system lying within its basin).
+% Tipping comes down to either an abrupt shift in the nature of the attractor or an abrupt shift to an alternative attractor. 
+In order to define attractors and basins, we must first formalize some aspects of long-term behavior.
+
+\begin{definition}
+	Consider a subset $S \subset U$. $S$ is \textbf{forward invariant} under the flow $\varphi$ if it contains all its forward images in time: $\varphi_t(S) \subset S$ for all $t \in \mathbb{R}^+$. Similarly, $S$ is \textbf{backward invariant} if $\varphi_t(S) \subset S$ for all $t \in \mathbb{R}^-$. $S$ is \textbf{invariant} if it is both forward and backward invariant. \qed
+\end{definition}
+
+Intuitively, an invariant set is one which always stays within itself. The next definition describes where an arbitrary set limits toward in the long run. 
+
+\begin{definition}
+	The \textbf{omega limit set} of $S \subset U$ is $$\omega(S)
+	= \bigcap \limits_{T > 0} \overline{ \bigcup\limits_{t > T} \varphi_t(S) }.$$ \qed
+\end{definition}
+
+%The omega limit set describes where trajectories that begin in $S$ eventually limit toward in forward time. Now we are ready to define an attractor. Additionally, an attractor has an associated domain, or basin of attraction, which is the subspace attracted to it. 
+
+Now we can define an attractor and its basin.
+
+\begin{definition}
+	An \textbf{attractor} $A \subset U$ is a non-empty, compact, invariant set which is the omega limit set $\omega(N)$ of some neighborhood $N$ of itself. Its \textbf{basin of attraction} is $basin(A) = \{x \in U ~|~ \omega(x) \subset A, \omega(x) \neq \emptyset\}$. \qed
+\end{definition}
+
+While attractors may have interesting structures -- periodic or chaotic, for instance -- we will begin with the simplest type of attractor: an attracting rest point. 
+
+\begin{definition}
+	$x_\ast$ is a \textbf{rest point} or \textbf{equilibrium} of the ODE (\ref{eqn:ode}) if $f(x_\ast) = 0$.
+\end{definition}
+
+%\begin{definition}
+	%A rest point $x_\ast$ is a \textbf{asymptotically stable} if
+%\end{definition}
+
+The following proposition is standard theory. 
+
+\begin{proposition}
+	If all eigenvalues of linearization at the rest point $x_{\ast}$ have negative real part, that is, $$Re(\lambda) < 0 \text{ for all } \lambda \in spec(\textbf{D}f(x_\ast))$$ 
+	then $x_{\ast}$ is an attractor. Note: we also call such an $x_\ast$ a \textbf{stable rest point}. \todo{what is the best terminology here?}
+\end{proposition}
 
 \input{asymptotic_resilience}
 
-\input{reactivity}
+%\input{reactivity}
 
 \input{intensity}

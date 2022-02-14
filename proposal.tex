@@ -1,10 +1,62 @@
 \section{Thesis Proposal}
 \label{sec:proposal}
 
+Example where intensity might be useful, more so than asymptotic resilience and classical critical slowing down. 
 
-\subsection{Continuity of Intensity of Attraction}
+Propose some avenues that may help build toward a theory of early warning indicators brought about by changes in intensity during the time leading up to a critical transition. 
 
-\subsection{Intensity through Critical Transitions}
+Want to pursue analytic results as well as simulate application-specific examples. 
+
+Might be that intensity only provides useful warning indicators in a specific class of critical transitions, or for a specific class of ODEs. 
+
+%\subsection{Continuity of Intensity}
+
+\subsection{Estimates of Intensity}
+One basic limitation of using intensity of attraction in any application right now: numerical computations of intensity (which currently use set-valued Euler methods on a fixed grid) are too time-intensive. 
+
+Want to develop other tools that can be used for estimating intensity or estimating bounds on intensity. (Also there is need for improved numerical methods, but not focus of this thesis proposal.)
+
+For instance, prove that intensity can be bounded by drawing a neighborhood of the attractor on whose boundary the vector field always points inward/outward with a minimum normal component.
+
+Idea of "basin steepness" but with caveats that there's not necessarily any potential function. 
+
+%\subsection{Demographic Versus Environmental Perturbations}
+
+\subsection{Intensity Through Local Bifurcations}
+
+One question is how intensity of attraction behaves when passing through a local bifurcation, and whether it always displays a systematic change, similar to the way that asymptotic resilience changes systematically by passing through zero. 
+
+First step may be to prove continuity of intensity with respect to parameter changes. Conjecture (McGehee or Meyer?)
+
+Then investigate one dimensional saddle-node, transcritical, and pitchfork bifurcations. 
+
+Maybe nothing interesting?
+
+Critical widening? Not explained by critical slowing down with state variable perturbation. But can be explained by decreasing intensity leading up to bifurcation with vector field perturbation. Since we see this in data, suggests that 
+
+Numerical computations of intensity across application-specific examples of bifurcation. 
+
+\subsection{Tipping Across Basin Boundaries}
+
+Critical slowing down pertains only to local bifurcations. But another class of tipping behavior occurs when perturbations push a state variable into an alternative basin of attraction. Intensity measures how difficult it is for this type of tipping to occur under bounded control types of perturbations. 
+
+\subsection{Reversibility of Hysteretic Transitions}
+
+Define hysteresis and give example of hysteresis. 
+
+At least two types: cubic type or parabolic plus additional steady state type (e.g. KIausmeier equation)
+
+Intensity of the alternative attractors describes whether the basin boundary tends to be cross before the bifurcation point or not. 
+
+Define intensity of the repeller in between?
 
 \subsection{Further Possibilities}
+
+Machine learning based early warning signals? Possible connection between machine-learning based and analytical theory based early warning signals? i.e. using theory to inform ML design. 
+
+Validating on actual data from somewhere?
+
+Connections to Flow-Kick systems?
+
+Further connections to Multiflows?
 
