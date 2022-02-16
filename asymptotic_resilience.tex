@@ -1,6 +1,6 @@
 \subsection{Asymptotic Resilience}
 
-Throughout this subsection, we will assume that $x_\ast$ is a stable rest point of an ODE. Probably the most classical mathematical definition of resilience, originally developed by theoretical ecologists\todo{citation}, represents long-term return rates to $x_{\ast}$, and is measured by the dominant eigenvalue at linearization. 
+Throughout this subsection, we will assume that $x_\ast$ is a stable rest point of an ODE. Probably the most classical and commonly used mathematical definition of resilience, originally developed by theoretical ecologists\todo{citation}, represents long-term return rates to $x_{\ast}$, and is measured by the dominant eigenvalue at linearization. 
 
 \begin{definition}
 	\label{def:asymp}
@@ -21,12 +21,14 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 	$$|e^{tA}x| \leq Ce^{L t}|x|.$$  \qed
 \end{theorem}
 
-Note the expression $e^{tA}x$ in left hand side is exactly the flow for $x' = \mathbf{A}x$. So the theorem says that trajectories must decay to the origin at an exponential rate with a bound on that rate governed by $\lambda_1$. For nonlinear systems, a similar bound on decay rate is justified by the Stable Manifold Theorem. %, also a standard theoretical result. 
+Note the expression $e^{tA}x$ in the left hand side is exactly the flow for the linear system $x' = \mathbf{A}x$. So this theorem says that trajectories must decay to the origin, where there is an equilibrium, at an exponential rate. Further, a bound on that rate is governed by the asymptotic resilience. If the equilibrium represents a steady state, then a small perturbation to a system at steady state can be conceptualized as a point which is very close to, but not quite at the equilibrium. Hence, the decay rate represents the rate of recovery from perturbation. 
 
+For nonlinear systems, a similar bound on decay rate is justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, for sufficiently nice rest points, the linear approximation based at that rest point is a good approximation. %, also a standard theoretical result. 
+%
 %The theorem states that there is a local  Moreover, the flow restricted to the stable and the unstable manifolds has exponential (hyperbolic) estimates similar to the inequalities in display (4.1)
 %
-
-%A version of the theorem is built up below. 
+%
+A statement of the Stable Manifold Theorem is built up below. 
 
 \begin{definition}
 	Let $A: \mathbb{R}^n \to \mathbb{R}^n$ be a linear transformation. Define the \textbf{stable eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with negative real part. Similarly, define the \textbf{unstable eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with positive real part. %Finally, define the \textbf{center eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with real part exactly equal to zero. 
@@ -75,11 +77,13 @@ Note in the case that $\mathbf{A}$ has no eigenvalues with real part equal to 0,
 	$$|\phi_t(x)| \leq Ce^{Lt}|x|$$ \qed
 \end{theorem}
 
-For a stable rest point, $\mathbf{A} = E_s$, because all eigenvalues have negative real part, so the local stable manifold $M^s_{loc}$ is just a $\delta$-neighborhood of the rest point. Hence, any trajectory beginning sufficiently close to equilibrium decays toward it at an exponential rate with a bound on that rate governed by $\lambda_1$. 
+For a stable rest point, we have $\mathbf{A} = E_s$ because all eigenvalues have negative real part; hence the local stable manifold $M^s_{loc}$ is just a small neighborhood of the rest point. So the bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a bound on that rate is governed by the asymptotic resilience.
 
 %Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.
 
-Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a perturbation may initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} (Figure \ref{fig:reactivity}). However, with some large enough choice of $C$, the Stable Manifold Theorem still implies an exponentially decaying bound on the rate of return to equilibrium. 
+\begin{remark}
+	Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a trajectory can initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} (Figure \ref{fig:reactivity}). However, with some large enough choice of $C$, the Stable Manifold Theorem still implies some exponentially decaying bound on the rate of return to equilibrium. 
+\end{remark}
 
 \begin{figure}[ht]
 	\centering
