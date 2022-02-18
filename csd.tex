@@ -1,11 +1,11 @@
 \section{Critical Slowing Down}
 \label{sec:csd}
 
-Asymptotic resilience helps determine a bound on the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, recovery typically becomes slower when closer to the verge of bifurcation. This is the core idea of critical slowing down. %, explained further in this section. 
+In this section, I summarize the theory of critical slowing down and the associated early warning signals of critical transitions which arise. Such early warning signals have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear in the moments leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
 
-%In this section, I summarize the theory of critical slowing down and the associated early warning signals of critical transitions that arise. 
-%
-%Such early warning signals have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear in the moments leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
+It should be remarked that another set of early warning signals for certain critical transitions, not discussed further here, are the spatial pattern-formation mechanisms (e.g. systematic changes in vegetation patterns preceding desertification) \todo{citation}. 
+
+%Asymptotic resilience helps determine a bound on the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, recovery typically becomes slower when closer to the verge of bifurcation. This is the core idea of critical slowing down. %, explained further in this section. 
 
 %Roughly, when an ODE approaches a tipping point (specifically, a local bifurcation) where an attracting rest point destabilizes, the rest point gradually loses asymptotic resilience, becoming slower to recover from small perturbations. Since real world systems are naturally perturbed all the time, this loss of asymptotic resilience ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \todo{ref figure}).
 
@@ -13,9 +13,11 @@ Asymptotic resilience helps determine a bound on the rate of return to equilibri
 
 %Formally, critical slowing down and its associated early warning signals can be explained as in the following subsections. 
 
-First, we briefly review the necessary background on (one parameter a.k.a. co-dimension one) local bifurcations. For a detailed treatment of local bifurcation theory, see a reference such as \todo{cite Chicone}. %For the purposes of this paper, we will focus on saddle-node (a.k.a fold) %(transcritical and pitchfork?) and Hopf bifurcations, while skipping over much of the preliminary theory. 
+%For the purposes of this paper, we will focus on saddle-node (a.k.a fold) %(transcritical and pitchfork?) and Hopf bifurcations, while skipping over much of the preliminary theory. 
 
 \subsection{Local Bifurcation}
+
+For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we will include only a very brief overview. 
 
 Consider a parameterized family of ODEs
 %
@@ -25,23 +27,30 @@ Consider a parameterized family of ODEs
 %
 $f: \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}^n$. Here, $x$ represents state variables, while $p$ represents a parameter. 
 
-Assume that there is a rest point $f(x_0,p_0) = 0$ for some value of the parameter $p = p_0$. Also suppose the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic.
+%Assume that there is a rest point $f(x_0,p_0) = 0$ for some value of the parameter $p = p_0$. Also suppose the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic.
+%%
+%%If the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic, then within a neighborhood of $x_0$ the dynamics are topologically conjugate to those of a linear ODE. 
+%%
+%Because all its eigenvalues are nonzero, $\mathbf{A}$ is an invertible transformation, and the Implicit Function Theorem applies to $f$. This produces a curve $p \to c(p)$ in $\mathbb{R}^n$, defined locally for $p \in [p_0-\epsilon, p_0 + \epsilon]$, such that $c(p_0) = x_0$ and $f(c(p), p) = 0$. 
 %
-%If the Jacobian $\mathbf{A} = Df(x_0, p_0)$ is hyperbolic, then within a neighborhood of $x_0$ the dynamics are topologically conjugate to those of a linear ODE. 
-%
-Because all its eigenvalues are nonzero, $\mathbf{A}$ is an invertible transformation, and the Implicit Function Theorem applies to $f$. This produces a curve $p \to c(p)$ in $\mathbb{R}^n$, defined locally for $p \in [p_0-\epsilon, p_0 + \epsilon]$, such that $c(p_0) = x_0$ and $f(c(p), p) = 0$. 
+%In other words, if the value of the parameter is adjusted slightly, there will still be a rest point at $c(p)$. Further, since the eigenvalues of $\textbf{A}$ are continuous with respect to $x$ and $p$, that rest point %$(c(p), p)$ for $p$ sufficiently close to $p_0$ 
+%is stable if and only if $(x_0,p_0)$ was stable. Thus, the only possible way for a small adjustment in parameter value to lead to a sudden loss of a stable rest point is if $\mathbf{A}$ is non-hyperbolic. Let us focus on that case.
+%\todo{move most of the above bifurcation discussion to the appendix or remove it?}
 
-In other words, if the value of the parameter is adjusted slightly, there is still a rest point at $c(p)$. Further, since the eigenvalues of $\textbf{A}$ are continuous with respect to $x$ and $p$, then the rest point $(c(p), p)$ for $p$ sufficiently close to $p_0$ is stable if and only if $(x_0,p_0)$ was stable. Hence, it is clear that the only way for a very small change in parameter value to lead to a loss of a stable rest point is if $\mathbf{A}$ is non-hyperbolic. Let us focus on that case.
+Conceptually, a local bifurcation is a critical state at which a very small change in the parameter value $p$ causes a drastic change in the qualitative nature of a rest point. In particular, its local topology changes -- for example, the rest point could switch between being stable and unstable, or it could disappear altogether. It is well known that such a change in local topology is only possible at non-hyperbolic rest points. 
 
 \begin{definition}
-	A \textbf{local bifurcation} occurs at ${\displaystyle (x_{0}, p_{0})}$ if the Jacobian matrix ${\displaystyle {\mathbf{D}f(x_{0},p _{0})}}$ has an eigenvalue with zero real part. Note this could either be a real eigenvalue $\lambda = 0$ or it could be a pair of imaginary eigenvalues $\lambda = \pm \omega i$. If $\textbf{A}$ has a real eigenvalue $\lambda = 0$, a \textbf{saddle-node} or \textbf{fold} bifurcation occurs. If $\textbf{A}$ has a pair of imaginary eigenvalues $\lambda = \pm \omega i$, a \textbf{Hopf} bifurcation occurs. \qed
+	A \textbf{local bifurcation} occurs at ${\displaystyle (x_{0}, p_{0})}$ if the Jacobian matrix ${\displaystyle {\mathbf{D}f(x_{0},p _{0})}}$ has an eigenvalue with zero real part. Note this could either be a real eigenvalue $\lambda = 0$ or it could be a pair of imaginary eigenvalues $\lambda = \pm \omega i$. In the former case, a \textbf{saddle-node} or \textbf{fold} bifurcation occurs. In the latter, a \textbf{Hopf} bifurcation occurs. \qed
 \end{definition}
 
-Note that the definition of saddle-node bifurcation here subsumes what are commonly termed transcritical and pitchfork bifurcations. \todo{clarify the relationship and the definitions here. }
+Note that the definition of saddle-node bifurcation here subsumes what are commonly termed transcritical and pitchfork bifurcations. \todo{clarify the relationship/ definitions here. }
 
-Examples of bifurcation types, normal forms?
+Add an example -- SIS infectious disease model, with transcritical bifurcation. 
 
-Subcritical and supercritical?
+%Examples of bifurcation types, normal forms?
+%
+%Subcritical and supercritical?
+
 
 \subsection{Critical Slowing Down}
 

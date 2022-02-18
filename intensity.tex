@@ -14,9 +14,9 @@ We also assume $g$ is locally integrable (i.e. integrable on every compact subse
 	where $f: U \subset \mathbb{R}^n \to \mathbb{R}^n$ is locally Lipschitz, $g \in L^\infty (I,\mathbb{R}^n)$ is locally integrable, and its norm $||g||_\infty$ is finite. \todo{how can $g$ have infinite norm and be locally integrable? do i need this as a separate condition?} \qed
 \end{definition}
 
-Here, the idea is that there is an underlying ODE $x'=f(x)$, but it is altered by adding the perturbation $g(t)$ to the vector field $f(x)$ on the right hand side. At every point in time, $g(t)$ will adjust the path of solutions somewhat away from their original trajectory. 
+Here, the underlying system is thought of as an ODE $x'=f(x)$; but it is altered by adding a perturbation $g(t)$ to the vector field $f(x)$ on the right hand side. The effect of $g(t)$ is to adjust, at every point in time, the path of solutions somewhat away from what would have been their original trajectory. 
 
-It remains to be justified whether such an addition leaves a well-defined system. Because the right hand side $f(x) + g(t)$ may be a discontinuous function, solutions $x(t)$ of the ODE must be considered in an extended sense, which is that $x'(t) = f(x) + g(t) \text{ almost everywhere.}$ Fortunately, the conditions on $g$ are enough to guarantee local existence and uniqueness of solutions in such an extended sense. Briefly: (1) the hypotheses of Caratheodory's theorem are satisfied, establishing existence, and (2) boundedness of $g$ guarantees Lipschitz continuity (local if $f$ is locally Lipschitz, global if $f$ is globally Lipschitz), thereby implying uniqueness. 
+It remains to be justified whether this construction produces a well-defined system. Because the right hand side $f(x) + g(t)$ may be a discontinuous function, solutions $x(t)$ of the ODE must be considered in an extended sense, which is that $x'(t) = f(x) + g(t) \text{ almost everywhere.}$ Fortunately, the conditions on $g$ are enough to guarantee local existence and uniqueness of solutions in such an extended sense. Briefly: (1) the hypotheses of Caratheodory's theorem are satisfied, establishing existence, and (2) boundedness of $g$ guarantees Lipschitz continuity (local if $f$ is locally Lipschitz, global if $f$ is globally Lipschitz), thereby implying uniqueness. 
 
 So we have well-defined solutions, and can therefore extend the standard local flow notation to the bounded control setting. Fixing an underlying vector field $f$, we will denote as follows the flow obtained by applying a choice of perturbation $g$.
 
@@ -24,7 +24,8 @@ So we have well-defined solutions, and can therefore extend the standard local f
 	$\varphi_g(t, x_0): D \subset \mathbb{R} \times U \to U$ is the local flow defined by $$\varphi_g(t, x_0) = x(t)$$ where $x(t)$ solves in the extended sense the ODE (\ref{eqn:control_ode}), with initial condition $x(0) = x_0$. \qed
 \end{definition}
 
-Intensity of attraction considers not just one single control function, but entire families of control functions -- specifically, those where every function is bounded by some maximum magnitude $r$. Supposing that vector field perturbations are limited by some ceiling $r$ on magnitude, each family can be thought of as a collection of all possible perturbations. The next definition gives a notation, $B_r$ for these families.
+Intensity of attraction considers not just one single control function, but entire families of control functions -- specifically, those where every function is bounded by some maximum magnitude $r$. %Supposing that vector field perturbations are limited by some ceiling $r$ on magnitude, each family can be thought of as a collection of all possible perturbations. 
+The next definition gives a notation for these families.
 
 
 \begin{definition}
@@ -48,18 +49,36 @@ Intensity of attraction considers not just one single control function, but enti
 %	\end{align*} \qed
 %\end{definition}
 
-Next, this leads into the notion of all possible states reachable in forward time, under control bounded by $r$, and beginning from some arbitrary initial set. 
+This leads, next, into the notion of all possible states reachable in forward time, under the family of all possible control functions bounded by $r$, and beginning from some arbitrary initial set of states.  
 
 \begin{definition}
-	Consider $S\subset  U$. The \textbf{reachable set} of $S$ under $r$-bounded control is
+	Consider $S\subset  U$. The \textbf{reachable set} of $S$ under $r$-bounded control is the set
 	$$R_r(S) =  \bigcup\limits_{g \in B_r} \bigcup\limits_{x_0 \in S} \bigcup\limits_{t \geq 0}  \varphi_g(t,x_0)$$ \qed
 \end{definition}
 
-Finally, we are ready to define intensity of attraction, which captures the folllowing idea: what is the smallest magnitude of control necessary in order to escape from a basin of attraction? \todo{why compact subsets?}
+Finally, we are ready to define intensity of attraction, which captures the folllowing idea: what is the smallest magnitude of control necessary in order to escape from (all compact subsets of) a basin of attraction? \todo{why compact subsets?}
 
 \begin{definition}
 	If $A$ is an attractor of $x' = f(x)$, then its \textbf{intensity of attraction} is 
 	$$intensity(A) = \sup\{ r \geq 0 ~|~ R_r(A) \subset K \subset basin(A), \text{ for some compact }K \}$$ \qed
 \end{definition}
 
-\todo{add example}
+Another way to understand intensity of attraction is through the idea of "basin steepness" -- what is the steepest part of the basin that must be overcome in order to escape the influence of the attractor? For systems whose state $x$ is one dimensional, the vector field $f: \mathbb{R} \to \mathbb{R}$ is always integrable, producing a potential function, and the maximum steepness of that potential on the basin is precisely equal to intensity of attraction. 
+
+\begin{proposition}
+	To do: 1D max value of f on basin/ max steepness of potential function on basin
+\end{proposition}
+
+Add figure with 1D example
+
+Unfortunately, for two and higher dimensional systems, no potential function necessarily exists, complicating the landscape analogy. Still, the next conjecture formalizes a sense in which intensity equals basin steepness. While this statement has not been proven, it seems likely to be true.  \todo{cite personal communication with Kate}
+
+\begin{conjecture}
+	To do: 2D and up version
+\end{conjecture}
+
+\begin{remark}
+	To do: connect to McGehee's original definition of intensity for discrete maps, and a fact in that setting which is analogous to the above conjecture.
+\end{remark}
+
+2D example

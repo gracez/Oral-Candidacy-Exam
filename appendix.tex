@@ -1,4 +1,49 @@
-\section{Omitted Proof in Section~\ref{sec:examples}}
-\label{app:1}
+\section{Stable Manifold Theorem}
+\label{stable_manifold_theorem}
 
-\lipsum[7]
+ \begin{definition}
+ 	Let $A: \mathbb{R}^n \to \mathbb{R}^n$ be a linear transformation. Define the \textbf{stable eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with negative real part. Similarly, define the \textbf{unstable eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with positive real part. %Finally, define the \textbf{center eigenspace} of $\mathbf{A}$ to be the subspace of $\mathbb{R}^n$ spanned by those eigenvectors of $\mathbf{A}$ with real part exactly equal to zero. 
+ 	\qed
+ \end{definition}
+ 
+ Note in the case that $\mathbf{A}$ has no eigenvalues with real part equal to 0, it can be decomposed into a direct sum of linear subspaces $\mathbf{A} = E_s \oplus E_u$. In this case we call $\mathbf{A}$ \textbf{infinitesimally hyperbolic}.
+ 
+ \begin{definition}
+ 	Let $x' = f(x)$ be an ODE with $f:U \subset \mathbb{R}^n \to \mathbb{R}^n$, local flow $\phi_t$, and a rest point at $x_0$. The \textbf{stable manifold} $M^s$ %and \textbf{unstable manifold} $M^u$ 
+ 	of $x_0$ is %are defined by
+ 	$$M^s = \{x \in U ~|~ \lim\limits_{t \to \infty} \phi_t(x)= x_0\}$$ 
+ 	%$$M^u = \{x \in U ~|~ \lim\limits_{t \to -\infty} \phi_t(x)= x_0\}$$ 
+ 	\qed
+ \end{definition}
+ 
+ %\begin{definition}
+ %	If the center eigenspace of $\mathbf{A}$ is empty, then we say $\mathbf{A}$ is hyperbolic. 
+ %\end{definition}
+ 
+ \begin{theorem}(Stable Manifold Theorem)
+ 	Consider a non-linear system 
+ 	%
+ 	$$x' = \mathbf{A}(x) + h(x),$$ 
+ 	%
+ 	where $\mathbf{A}, h: \mathbb{R}^n \to \mathbb{R}^n$ with $\mathbf{A}$ linear.  Let $\phi_t$ be the local flow.
+ 	%
+ 	Assume $h(0) =  Dh(0)=0$ so that there is a rest point at the origin. Let $M^s$ be the stable manifold of the origin. 
+ 	%
+ 	Also suppose $\mathbf{A}$ is infinitesimally hyperbolic. Let $E_s$ and $E_u$ be the stable and unstable eigenspaces of $\mathbf{A}$, respectively, so that $\textbf{A} = E_s \oplus E_u$. Let $P_s: \mathbb{R}^n \to E_s$ %and $P_u: \mathbb{R}^n \to E_u$ 
+ 	be the linear projection operator onto the stable %and unstable 
+ 	eigenspace. Also let $\lambda_1$ be the dominant eigenvalue of $E_s$. 
+ 	
+ 	Then there exists a ball $B_\delta(0) \subset \mathbb{R}^n$ about the origin, 
+ 	%
+ 	and a function $\alpha: B_\delta \cap E_s \to E_u $ with $\alpha(0)  = D\alpha(0) = 0$ 
+ 	%
+ 	so that its graph $M^s_{loc} = \{(x, \alpha(x)) \in \mathbb{R}^n : x \in B_\delta \cap E_s\}$ is a \textbf{local stable manifold} of the origin. 
+ 	%
+ 	That is, $$M^s_{loc} = \{x \in U : |P^s(x)| \in B_\delta(0)\} \cap M^s$$
+ 	
+ 	Furthermore, for any $Re(\lambda_1) < L < 0$, there exists $C >0$ such that for all $x \in M^s_{loc}$, $t \geq 0$,
+ 	%
+ 	$$|\phi_t(x)| \leq Ce^{Lt}|x|$$\todo{does the long term $C=1$ statement also hold?} \qed
+ \end{theorem}
+
+For a stable rest point, we have $\mathbf{A} = E_s$ because all eigenvalues have negative real part; hence the local stable manifold $M^s_{loc}$ is just a small neighborhood of the rest point. 

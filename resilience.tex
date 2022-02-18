@@ -9,7 +9,7 @@ For a review of some other mathematical definitions of resilience that I do not 
 
 
 \subsection{Preliminaries}
-Let $U \subset \mathbb{R}^n$ be an open set, and assume that $f : U \to \mathbb{R}^n$ is a locally Lipschitz continuous function. Consider a system of ordinary differential equations (ODEs) 
+Let $U \subset \mathbb{R}^n$ be an open set, and assume that $f : U \to \mathbb{R}^n$ is a locally Lipschitz continuous function which is continuously differentiable. Consider a system of ordinary differential equations (ODEs) 
 
 \begin{equation}
 	\label{eqn:ode}
@@ -26,7 +26,7 @@ Additionally, we will be taking the following notational conveniences. For a flo
 
 Intuitively, the map $\varphi_t$ outputs the location of any input point after it flows for $t$ units of time. If the input is a set, then the output is also a set, consisting of all the locations reached at time $t$.
 
-Two central objects of study in this paper are attractors and their associated basins of attraction. Attractors characterize the system's behavior as $t \to \infty$, by pulling trajectories toward them -- at least, those trajectories which begin within their basin of attraction. Tipping behavior often comes down to either an abrupt shift in the nature of an attractor or an abrupt switch from one attractor to an alternative attractor. 
+Two central objects of study in this paper are attractors and their associated basins of attraction. Attractors characterize the system's behavior as $t \to \infty$, by pulling trajectories toward them -- at least, those trajectories which begin within their basin of attraction. Tipping behavior often comes down to either an abrupt shift in the nature of an attractor or an abrupt switch from one attractor to an alternative attractor. When we talk about resilience in this paper, we are referring to the resilience \textit{of an attractor}. 
 
 In order to define attractors and basins, we must first formalize some aspects of long-term behavior.
 
@@ -37,7 +37,7 @@ In order to define attractors and basins, we must first formalize some aspects o
 	\qed
 \end{definition}
 
-Intuitively, an invariant set is one which stays put for all time. %while forward and backward invariant sets stay put in forward and backward time, respectively. 
+Intuitively, an invariant set is one which always stays put. %while forward and backward invariant sets stay put in forward and backward time, respectively. 
 The next definition describes where an arbitrary set ends up, or at least limits toward, in the long tun. 
 
 \begin{definition}
@@ -55,7 +55,7 @@ Now we have the vocabulary to formally define attractors and basins.
 
 As mentioned, attractors are the fixed structures in a system which are approached by solution trajectories in the long run. Each attractor has a certain dominion of rule -- those trajectories beginning within its basin are the ones that end up drawn toward it. While attractors may have interesting structures -- periodic or chaotic, for instance -- we will begin with the simplest type of attractor: an \textbf{attracting rest point}. These attracting rest points, also called \textbf{stable rest points}, capture the intuitive idea of a "steady state." 
 
-The next definition says that a rest point is any unmoving point, while the subsequent proposition, which is standard theory, gives conditions under which a rest point is an attracting one.
+The next definition says that a rest point is any unmoving point, while the subsequent proposition, which is standard theory, gives conditions under which a rest point is an attracting one. 
 
 \begin{definition}
 	$x_\ast$ is a \textbf{rest point} or \textbf{equilibrium} of the ODE (\ref{eqn:ode}) if $f(x_\ast) = 0$.
@@ -70,6 +70,20 @@ The next definition says that a rest point is any unmoving point, while the subs
 then $x_{\ast}$ is an attractor. %Note: we also call such an $x_\ast$ a \textbf{stable rest point}. \todo{what is the best terminology here?} 
 \qed
 \end{proposition}
+
+Finally, we give useful terminology to classes of rest points which do not fall into the above category. 
+
+\begin{definition}
+	If all eigenvalues of linearization at the rest point $x_{\ast}$ have non-zero real part, then $x_{\ast}$ is called \textbf{hyperbolic}. Otherwise, at least one eigenvalue has zero real part, and we call $x_{\ast}$ \textbf{non-hyperbolic}.
+	\qed
+\end{definition}
+
+\begin{definition}
+	If $x_{\ast}$ is hyperbolic, and at least one eigenvalue of linearization at the rest point $x_{\ast}$ has positive real part, then $x_{\ast}$ is called \textbf{unstable}. 
+	\qed
+\end{definition}
+
+Hyperbolic rest points can be thought of as ``nice" rest points, ones near which the dynamics are predictable in some sense. Unstable rest points match the intuitive notion of unstable states -- around them, nearly all trajectories are repelled away. At non-hyperbolic points the behavior is unpredictable -- the point may be stable, unstable, or neither. 
 
 This concludes our set up of the preliminary framework, and we continue next to the definitions of asymptotic resilience and intensity of attraction.
 
