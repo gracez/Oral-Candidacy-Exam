@@ -1,7 +1,7 @@
 \section{Critical Slowing Down}
 \label{sec:csd}
 
-In this section, I summarize the theory of critical slowing down and the associated early warning signals of critical transitions which arise. Such early warning signals have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear in the moments leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
+Critical slowing down and associated early warning signals of critical transitions have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
 
 It should be remarked that another set of early warning signals for certain critical transitions, not discussed further here, are the spatial pattern-formation mechanisms (e.g. systematic changes in vegetation patterns preceding desertification) \todo{citation}. 
 
@@ -17,7 +17,7 @@ It should be remarked that another set of early warning signals for certain crit
 
 \subsection{Local Bifurcation}
 
-For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we will include only a very brief overview. 
+For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we include only an extremely brief overview. 
 
 Consider a parameterized family of ODEs
 %
@@ -43,32 +43,77 @@ Conceptually, a local bifurcation is a critical state at which a very small chan
 	A \textbf{local bifurcation} occurs at ${\displaystyle (x_{0}, p_{0})}$ if the Jacobian matrix ${\displaystyle {\mathbf{D}f(x_{0},p _{0})}}$ has an eigenvalue with zero real part. Note this could either be a real eigenvalue $\lambda = 0$ or it could be a pair of imaginary eigenvalues $\lambda = \pm \omega i$. In the former case, a \textbf{saddle-node} or \textbf{fold} bifurcation occurs. In the latter, a \textbf{Hopf} bifurcation occurs. \qed
 \end{definition}
 
-Note that the definition of saddle-node bifurcation here subsumes what are commonly termed transcritical and pitchfork bifurcations. \todo{clarify the relationship/ definitions here. }
+For simplicity, the term saddle-node bifurcation used here subsumes what are commonly termed transcritical and pitchfork bifurcations, while usage may vary between different authors. However, the distinction between the three categories is useful from an applied point of view, because they reflect different behavior. Briefly, a true \textbf{saddle-node/fold bifurcation}, which is neither of the other two types, involves the simultaneous creation or destruction of two equilibria -- it has also been called a ``blue-sky" bifurcation, because two points appear out of or disappear into the blue sky. A \textbf{pitchfork bifurcation}, is similar, but there is already an existing rest point, so that the system switches locally between having one or three rest points; pitchfork bifurcations only occur in sufficiently symmetrical systems, a scenario that does not typically occur in ecological applications. Finally, a \textbf{transcritical bifurcation} involves no new birth or death of rest points; instead, a stable and an unstable rest point collide and exchange stabilities with each other. 
 
-Add an example -- SIS infectious disease model, with transcritical bifurcation. 
+A \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit is created or destroyed. 
+
+%\begin{example}
+%	Consider a simple harvesting model $$x' = x(1-x)-h.$$
+%	$h$ represents a constant harvesting rate; in the absence of it, the population $x$ undergoes logistic growth to a carrying capacity of 1. As $h$ is gradually increased, the stable population size, $x^{\ast} = \frac{1+\sqrt{1-4h}}{2}$, decreases from 1. 
+%	Then, at $h = 1/4$, the system undergoes a saddle-node bifurcation, and the stable equilibrium disappears, implying extinction for the population. (Figure \ref{fig:harvesting_bifurcation_diagram}). 
+%	
+%	\begin{figure}[ht]
+%		\centering
+%		\captionsetup{width=0.5\linewidth}
+%		\includegraphics[width=0.5\textwidth]{figs/harvesting_bifurcation_diagram}
+%		\caption{Bifurcation diagram for harvesting model $x' = x(1-x)-h$. } 
+%		\label{fig:harvesting_bifurcation_diagram}
+%	\end{figure} 
+%	
+%	\todo{cite Hirsch, Smale, Devaney in figure}
+%	
+%	Computing the dominant (and only) eigenvalue at $x^{\ast}$:
+%	\begin{gather}
+%		Df(x^{\ast}) = 1-2x^{\ast} = -\sqrt{-1-4h}\\
+%		\implies \lambda_1 = -\sqrt{-1-4h}
+%	\end{gather} 
+%
+%	
+%\end{example}
+
+%but some authors may define saddle-node bifurcations to exclude transcritical and pitchfork bifurcations. The distinction between the three categories is useful from an applied point of view, so they are reviewed next here. 
+
+
+
+%Add an example -- SIS infectious disease model, with transcritical bifurcation. 
 
 %Examples of bifurcation types, normal forms?
 %
 %Subcritical and supercritical?
 
 
-\subsection{Critical Slowing Down}
+\subsection{Critical Slowing Down and Early Warning Signals}
 
-From the Stable Manifold Theorem (section \todo{ref}), we know that trajectories beginning sufficiently close to a stable rest point approach it at a rate bounded exponentially. In particular, for any $Re(\lambda_1) < L < 0$ there is some constant $C >0$ such that
-$$|\phi_t(x)| \leq Ce^{Lt}|x|$$
+From the previous subsection, we know that local bifurcations are characterized by an eigenvalue's real part approaching and passing through zero. For a stable rest point, all of whose eigenvalues' real parts are negative, this necessarily means it is the dominant eigenvalue's real part which passes through zero. Hence, local bifurcation involving an abrupt change to a steady state is characterized by asymptotic resilience going to zero. We also know that asymptotic resilience provides a bound on long term recovery rates from small perturbations. So, leading up to the bifurcation, recovery rates tend to slow, and this phenomenon is termed critical slowing down. 
+
+Since real world systems frequently face natural perturbations, this slowing down of recovery rate ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \ref{fig:csd}).
+
+Formal derivations of the existence of these early warning signals (increased variance and increased auto-correlation) were difficult for me to find in the literature. 
+%
+An approach has been taken in \cite{schefferCriticalTransitionsNature2009}, approximating the decay by a discrete auto-regressive process with random additive noise applied after each period $\Delta t$,
+$$|x_{n+1}-x^{\ast}| = e^{\lambda \Delta t}|x_n-x^{\ast}|+\sigma\epsilon_n.$$
+However, it requires the simplifying assumption that return between disturbances is precisely exponential. Another approach has been taken in \cite{ritchieEarlywarningIndicatorsDynamic2016} where the trajectory is modelled as a continuous stochastic mean-reverting process (an Ornstein-Uhlenbeck process), which is the continuous analog of the auto-regressive process of the previously mentioned authors. But this has the same underlying issue of a fundamental simplifying approximation. 
+
+Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} emphasize that asymptotic resilience crucially ignores short term behavior. While decay rates are exponential in the limit, perturbations could actually amplify in the short term, and this amplification could happen for arbitrarily small perturbations (also see the end of subsection \ref{sec:asymp_res}). As a result, simplifying assumptions such as precise exponential decay cannot always be applied reasonably. 
+
+Typically, discussions of early warning indicators are framed from within applied point of view. Empirically, increased variance and increased auto-correlation have indeed been observed in many example systems, and this has often been taken as evidence of their existence in general. Yet, one drawback to the informal treatment is that the precise conditions under which these early warning signals arise, and hence their reliability across different systems and circumstances, remains unclear. 
 
 
-Formal derivation (how to handle the constant C in front of the recovery rate bound?)
+%The formal understanding requires future clarification. 
 
-Example: normal form for transcritical or saddle node bifurcation
 
-\subsection{Early Warning Signals}
+%More formal statement of critical slowing down, and formal derivation of variance and auto-correlation after a small shock of size epsilon? (how? all the references that I have tend to discuss critical slowing down and early warning indicators fairly informally.) \todo{to do}
 
-Roughly, when an ODE approaches a tipping point (specifically, a local bifurcation) where an attracting rest point destabilizes, the rest point gradually loses asymptotic resilience, becoming slower to recover from small perturbations. Since real world systems are naturally perturbed all the time, this loss of asymptotic resilience ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \todo{ref figure}).
+\begin{figure}[ht]
+	\centering
+	\captionsetup{width=\linewidth}
+	\includegraphics[width=\textwidth]{figs/critical_slowing_down}
+	\caption{Critical slowing down and early warning signals. Figure reproduced from \cite{schefferEarlywarningSignalsCritical2009a}.}
+	
+	\label{fig:csd}
+\end{figure} 
 
-\todo{insert figure}
 
-Formal derivation of variance and auto-correlation after a small shock of size epsilon? (how?)
 
 %\subsection{Limitations}
 	

@@ -1,34 +1,39 @@
 \section{Thesis Proposal}
 \label{sec:proposal}
 
-Example where intensity might be useful, more so than asymptotic resilience and classical critical slowing down. 
+The formal understanding of early warning signals of critical transitions requires future clarification; specifically, the current theory relies on long-term and linear approximations while ignoring transient behavior. 
 
-Propose some avenues that may help build toward a theory of early warning indicators brought about by changes in intensity during the time leading up to a critical transition. 
+One line of research seeks to clarify the effect of short term non-exponential behavior. For example, reactivity has recently been shown to change systematically leading up to bifurcation in a certain class of infectious disease models \cite{oreganTransientIndicatorsTipping2020}. 
 
-Want to pursue analytic results as well as simulate application-specific examples. 
+On the other hand, I propose to clarify the effect of behavior far away from the attractor -- far enough that it is not within the descriptive bounds of a linear approximation. I suggest investigating the relationship between intensity of attraction and critical transitions. 
 
-Might be that intensity only provides useful warning indicators in a specific class of critical transitions, or for a specific class of ODEs. 
+Toward this goal, I propose to relate intensity to at least three different aspects of tipping behavior: local bifurcations, tipping across basin boundaries, and reversibility of hysteretic transitions. As a supplementary pursuit, I would also like to improve the general theoretical understanding of intensity of attraction, by considering various open questions related to it. Finally, 
+
+
+%I would like to pursue analytic results as well as application-specific examples. 
+
+Perhaps this work may eventually help build toward a theory of early warning indicators brought about by changes in intensity during the time leading up to a critical transition. 
+
+
+%Propose some avenues that may help build toward a theory of early warning indicators brought about by changes in intensity during the time leading up to a critical transition. 
+%
+%Might be that intensity only provides useful warning indicators in a specific class of critical transitions, or for a specific class of ODEs. 
+
+TO DO: Example where intensity might be useful, more so than asymptotic resilience and classical critical slowing down. 
 
 %\subsection{Continuity of Intensity}
-
-\subsection{Estimates of Intensity}
-One basic limitation of using intensity of attraction in any application right now: numerical computations of intensity (which currently use set-valued Euler methods on a fixed grid) are too time-intensive. 
-
-Want to develop other tools that can be used for estimating intensity or estimating bounds on intensity. (Also there is need for improved numerical methods, but not focus of this thesis proposal.)
-
-For instance, prove that intensity can be bounded by drawing a neighborhood of the attractor on whose boundary the vector field always points inward/outward with a minimum normal component.
-
-Idea of "basin steepness" but with caveats that there's not necessarily any potential function. 
 
 %\subsection{Demographic Versus Environmental Perturbations}
 
 \subsection{Intensity Through Local Bifurcations}
 
-One question is how intensity of attraction behaves when passing through a local bifurcation, and whether it always displays a systematic change, similar to the way that asymptotic resilience changes systematically by passing through zero. 
+How does intensity of attraction behave when passing through a local bifurcation? Does it display a systematic change, similar to the way that asymptotic resilience? Here, a first step may be to prove continuity of intensity with respect to parameter changes. 
 
-First step may be to prove continuity of intensity with respect to parameter changes. Conjecture (McGehee or Meyer?)
+\begin{conjecture}(McGehee or Meyer?)
+	Intensity is continuous with respect to parameter changes. To do: phrase this formally.
+\end{conjecture}
 
-Then investigate one dimensional saddle-node, transcritical, and pitchfork bifurcations. 
+Next, I would investigate one dimensional saddle-node, transcritical, and pitchfork bifurcations. 
 
 Maybe nothing interesting?
 
@@ -46,9 +51,18 @@ Define hysteresis and give example of hysteresis.
 
 At least two types: cubic type or parabolic plus additional steady state type (e.g. KIausmeier equation)
 
-Intensity of the alternative attractors describes whether the basin boundary tends to be cross before the bifurcation point or not. 
+Intensity of the alternative attractors describes whether the basin boundary tends to be crossed before the bifurcation point or not. 
 
 Define intensity of the repeller in between?
+
+\subsection{Other Open Questions About Intensity}
+
+\subsubsection{Estimates of Intensity}
+One basic limitation of using intensity of attraction in any application right now: numerical computations of intensity (which currently use set-valued Euler methods on a fixed grid) are too time-intensive. Instead, analytic tools should be developed that can be used for estimating intensity. (There is also a need for improved numerical methods, although this important avenue is not the focus of my thesis proposal.)
+
+For instance, I would start by pursuing a proof of Conjecture \ref{conj:steepness}, which may provide a tractable way to estimate a lower bound on intensity without requiring a full numerical computation. 
+
+\subsubsection{}
 
 \subsection{Further Possibilities}
 

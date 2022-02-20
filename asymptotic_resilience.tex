@@ -1,15 +1,13 @@
 \subsection{Asymptotic Resilience}
+\label{sec:asymp_res}
 
-Throughout this subsection, we will assume that $x_\ast$ is an attracting rest point of an ODE. Probably the most commonly used mathematical definition of resilience,  originally developed by theoretical ecologists\todo{citation}, represents long-term return rates to $x_{\ast}$, and is measured by (the real part of) the dominant eigenvalue at linearization. 
+Throughout this subsection, we will assume that $x_\ast$ is an attracting rest point of an ODE. Probably the most commonly used mathematical definition of resilience,  originating in theoretical ecology\todo{citation}, represents long-term return rates to $x_{\ast}$, and is measured by (the real part of) the dominant eigenvalue at linearization. 
 
 \begin{definition}
 	\label{def:asymp}
-	 Let $\textbf{A} = Df(x_\ast)$ denote the Jacobian, and recall that all eigenvalues of $\mathbf{A}$ have negative real part. Let $\lambda_1(\textbf{A})$ be the eigenvalue with largest (closest to 0) real part. 
-	
-	\begin{center}
-	The \textbf{asymptotic resilience} of the system at the stable rest point is $Re(\lambda_1(\textbf{A}))$.
-	\end{center}
-Note: we will refer to $\lambda_1$ as the \textbf{dominant eigenvalue} of $\mathbf{A}$. 
+	 Let $\textbf{A} = Df(x_\ast)$ denote the Jacobian, and recall that all eigenvalues of $\mathbf{A}$ have negative real part. Let $\lambda_1(\textbf{A})$ be the eigenvalue with largest (closest to 0) real part. 	The \textbf{asymptotic resilience} of the system at the stable rest point is equal to the negative of that real part, $$-Re(\lambda_1(\textbf{A})).$$
+
+Note: we will refer to $\lambda_1$ as the \textbf{dominant eigenvalue} or the \textbf{slow eigenvalue} of $\mathbf{A}$. 
 	 \qed 
 \end{definition}
 
@@ -18,13 +16,21 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 
 \begin{theorem}
 	For an $n \times n$ matrix $\mathbf{A}$, if $Re(\lambda) < L < 0$ for all eigenvalues $\lambda$ of $\mathbf{A}$, then there is some constant $C>0$ such that for all $x \in \mathbb{R}^n$ and $t \geq 0$,
-	
-	$$|e^{tA}x| \leq Ce^{L t}|x|.$$ 
-	
+	%
+	$$|e^{t\mathbf{A}}x| \leq Ce^{L t}|x|.$$ 
+	%
 	Further, in the long term $C$ can be taken to equal $1$. That is, there is some $T \geq 0$ such that
-	
-	$$|e^{tA}x| \leq e^{L t}|x| ~ ~\text{ for all } t \geq T.$$ \qed
+	%
+	$$|e^{t\mathbf{A}}x| \leq e^{L t}|x| ~ ~\text{ for all } t \geq T.$$
+	%
+%	Finally, in the limit, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience
+%	%
+%	$$\lim\limits_{t \to \infty} |e^{tA}x| = Ce^{res(A) t}|x| ~ ~\text{ for all } t \geq T.$$ \todo{make sure this last part is true and include a proof in the appendix}
+	%
+	 \qed
 \end{theorem}
+
+TO DO: Is there a converse to the inequality? how to say that this is a good bound? i.e. for almost all trajectories, in the limit as $t\to \infty$, decay is exactly exponential with rate constant $Re{\lambda_1}$. I feel like this is true, but I can't find a statement of it in a book. \todo{to do}
 
 %\begin{theorem}
 %	For an $n \times n$ matrix $\mathbf{A}$, if $Re(\lambda) < L < 0$ for all eigenvalues $\lambda$ of $\mathbf{A}$, then there is some constant $T>0$ such that for all $x \in \mathbb{R}^n$ and $t \geq T$,
@@ -32,9 +38,23 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 %	$$|e^{tA}x| \leq e^{L t}|x|.$$  \qed
 %\end{theorem}
 
-Note the expression $e^{tA}x$ in the left hand side is exactly the flow for the linear system $x' = \mathbf{A}x$. So this theorem says that, in the long term, trajectories must decay to the equilibrium at the origin at an exponential rate. Further, a bound on that rate is governed by the asymptotic resilience. 
+Note the operator $e^{t\mathbf{A}}$ in the left hand side is exactly the flow $\varphi_t$ for the linear system $x' = \mathbf{A}x$. So this theorem says that, in the long term, trajectories must decay to the origin at an exponential rate. Further, a bound on that rate is governed by the asymptotic resilience. 
 
-For nonlinear systems, a similar bound on decay rate is justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, at sufficiently nice rest points, the linear approximation is a good approximation. %, also a standard theoretical result. 
+%A related theorem serves as a converse of sorts, and says that the exponential bound is a good bound, so that trajectories typically do not decay significantly faster. A proof is contained in the appendix.  \todo{Is this correct? Need to work through a proof carefully. I can't find this in a book.}
+%
+%\begin{theorem} For almost all initial conditions $x\in U$, and in the limit as $t \to \infty$,
+%	$$ |e^{tA}x| = e^{ Re(\lambda_1)t}|x|.$$ \qed
+%\end{theorem}
+
+%\begin{theorem}
+%	For almost all initial conditions $x_0 \in U$, 
+%	$$\lim\limits_{t \to \infty} |\varphi_t(x_0)|' = Re(\lambda_1)|\varphi_t(x_0)|,$$
+%	where $' = \dfrac{d}{dt}$, and $\lambda_1$ is the dominant eigenvalue of $\mathbf{A}$.
+%\end{theorem}
+
+%\todo{write proof.}
+
+For nonlinear systems, similar bounds on decay rate is justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, at sufficiently nice rest points, the linear approximation is a good approximation. %, also a standard theoretical result. 
 %
 %The theorem states that there is a local  Moreover, the flow restricted to the stable and the unstable manifolds has exponential (hyperbolic) estimates similar to the inequalities in display (4.1)
 %
@@ -62,10 +82,12 @@ A special case of the Stable Manifold Theorem is stated here, while a full versi
 	%
 	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$
 	%
-	\todo{does the long term $C=1$ statement hold? Can't find this in any book but I think it should be true} \qed
+	\todo{does the long term $C=1$ statement hold? Can't find this in a book but I feel like it should be true. Also how about a converse to the inequality?} \qed
 \end{theorem}
 
-The bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a long term bound on that rate is governed by the asymptotic resilience. Since the equilibrium represents a steady state, then any point which is very close to, but not quite at, the equilibrium represents a slightly perturbed state. Hence, the rate of decay represents the recovery rate from perturbations. 
+The bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a long term bound on that rate is governed by the asymptotic resilience. Since the equilibrium represents a steady state, then any point which is very close to, but not quite at, the equilibrium represents a slightly perturbed state. Hence, the rate of decay can be thought of as the recovery rate from small perturbations. 
+
+(how to say that the exponential bound on asymptotic return rate is a good bound? i.e. most trajectories do eventually decay at that rate, and not much faster than it.)\todo{to do}
 
 %Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.
 

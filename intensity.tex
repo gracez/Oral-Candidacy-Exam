@@ -1,6 +1,6 @@
 \subsection{Intensity of Attraction}
 
-Asymptotic resilience notably relies on linearizing at a point attractor. In contrast, intensity of attraction, introduced by Katherine Meyer in her PhD thesis \cite{meyerMetricPropertiesAttractors2019}, measures resilience not only for rest points but also for any other type of attractor. Even more importantly, it captures metric information across the entire basin of attraction rather than simplifying to a topologically equivalent approximation within a limited neighborhood. We now review the necessary background in order to define intensity of attraction. 
+Asymptotic resilience notably relies on linearizing at a point attractor. In contrast, intensity of attraction, originally introduced by Richard McGehee for discrete maps \cite{mcgeheeMetricPropertiesAttractors}, and extended to the continuous case by Katherine Meyer \cite{meyerMetricPropertiesAttractors2019}, measures resilience not only for rest points but also for any other type of attractor. Even more importantly, it captures metric information across the entire basin of attraction rather than simplifying to a topologically equivalent approximation within a limited neighborhood. We now review the necessary background in order to define intensity of attraction. 
 
 First of all, the idea of perturbation will now be represented by what is known as a \textbf{control function} added to an underlying vector field. This construction allows for perturbations which are not necessarily small and isolated, but possibly large and continuous, reflecting important types of perturbation that commonly occur in ecological and other applied settings, such as environmental forces or human-driven pressure (intentional or unintentional) on an ecosystem. We assume that the control function $$g: I \subset \mathbb{R} \to \mathbb{R}^n$$ is taken from the space of essentially bounded (i.e. bounded except on a set of measure 0) measurable functions $L^\infty (I,\mathbb{R}^n)$, where the norm is 
 $$||g||_\infty = \inf\{C \geq 0  :  ||g(x)|| \leq C  \text{ for almost every } x \in I \}.$$ 
@@ -63,22 +63,27 @@ Finally, we are ready to define intensity of attraction, which captures the foll
 	$$intensity(A) = \sup\{ r \geq 0 ~|~ R_r(A) \subset K \subset basin(A), \text{ for some compact }K \}$$ \qed
 \end{definition}
 
-Another way to understand intensity of attraction is through the idea of "basin steepness" -- what is the steepest part of the basin that must be overcome in order to escape the influence of the attractor? For systems whose state $x$ is one dimensional, the vector field $f: \mathbb{R} \to \mathbb{R}$ is always integrable, producing a potential function, and the maximum steepness of that potential on the basin is precisely equal to intensity of attraction. 
+Another way to understand intensity of attraction is through the idea of "basin steepness" -- what is the steepest part of the basin that must be overcome in order to escape the influence of the attractor? For systems whose state $x$ is one dimensional, this intuition is precise: the vector field $f: \mathbb{R} \to \mathbb{R}$ is always integrable, producing a potential function, and the maximum steepness of that potential on the basin determines intensity of attraction. 
 
 \begin{proposition}
-	To do: 1D max value of f on basin/ max steepness of potential function on basin
+	To do: 1D basin steepness
 \end{proposition}
+
+\begin{proof}
+	content...
+\end{proof}
 
 Add figure with 1D example
 
-Unfortunately, for two and higher dimensional systems, no potential function necessarily exists, complicating the landscape analogy. Still, the next conjecture formalizes a sense in which intensity equals basin steepness. While this statement has not been proven, it seems likely to be true.  \todo{cite personal communication with Kate}
+Unfortunately, for two and higher dimensional systems, no potential function necessarily exists, complicating the landscape analogy. Still, the next conjecture formalizes a sense in which intensity equals basin steepness. This conjecture has not yet been proven in the continuous case, but in McGehee's original conception of intensity for discrete maps, an analogous statement is true. %\todo{cite personal communication with Kate}
 
 \begin{conjecture}
-	To do: 2D and up version
+	\label{conj:steepness}
+	If there is a neighborhood $N$ of the attractor whose closure is within its basin of attraction, such that the inward normal component of the vector field $f$ at every point on the boundary of $N$ is at least $k$, then the intensity of the attractor is at least $k$.
 \end{conjecture}
 
-\begin{remark}
-	To do: connect to McGehee's original definition of intensity for discrete maps, and a fact in that setting which is analogous to the above conjecture.
-\end{remark}
+%\begin{remark}
+%	To do: connect to McGehee's original definition of intensity for discrete maps, and a fact in that setting which is analogous to the above conjecture.
+%\end{remark}
 
-2D example
+Add picture
