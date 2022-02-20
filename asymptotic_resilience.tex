@@ -1,7 +1,7 @@
 \subsection{Asymptotic Resilience}
 \label{sec:asymp_res}
 
-Throughout this subsection, we will assume that $x_\ast$ is an attracting rest point of an ODE. Probably the most commonly used mathematical definition of resilience,  originating in theoretical ecology\todo{citation}, represents long-term return rates to $x_{\ast}$, and is measured by (the real part of) the dominant eigenvalue at linearization. 
+Throughout this subsection, we will assume that $x_\ast$ is an attracting rest point of an ODE. Probably the most commonly used mathematical definition of resilience,  originating in theoretical ecology \cite{pimmComplexityStabilityEcosystems1984, mayStabilityComplexityModel1974, hollingResilienceStabilityEcological1973, pimm1991balance}, represents long-term return rates to $x_{\ast}$, and is measured by (the real part of) the dominant eigenvalue at linearization. 
 
 \begin{definition}
 	\label{def:asymp}
@@ -30,7 +30,7 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 	 \qed
 \end{theorem}
 
-TO DO: Is there a converse to the inequality? how to say that this is a good bound? i.e. for almost all trajectories, in the limit as $t\to \infty$, decay is exactly exponential with rate constant $Re{\lambda_1}$. I feel like this is true, but I can't find a statement of it in a book. \todo{to do}
+TO DO: Is there a converse to the inequality? how to say that this is a good bound? i.e. for almost all trajectories, and in the limit as $t\to \infty$, they do eventually decay at that rate, rather than much faster than it. I feel like this is true, but I can't find a statement of it in a book. \todo{to do}
 
 %\begin{theorem}
 %	For an $n \times n$ matrix $\mathbf{A}$, if $Re(\lambda) < L < 0$ for all eigenvalues $\lambda$ of $\mathbf{A}$, then there is some constant $T>0$ such that for all $x \in \mathbb{R}^n$ and $t \geq T$,
@@ -80,19 +80,17 @@ A special case of the Stable Manifold Theorem is stated here, while a full versi
 	%
  	and for some $T \geq 0$, $C$ can be taken to equal $1$
 	%
-	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$
-	%
-	\todo{does the long term $C=1$ statement hold? Can't find this in a book but I feel like it should be true. Also how about a converse to the inequality?} \qed
+	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$\qed
 \end{theorem}
 
-The bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a long term bound on that rate is governed by the asymptotic resilience. Since the equilibrium represents a steady state, then any point which is very close to, but not quite at, the equilibrium represents a slightly perturbed state. Hence, the rate of decay can be thought of as the recovery rate from small perturbations. 
+TO DO: does that last statement about long term $C=1$ hold? Can't find this in a book but I feel like it should be true. And also, what about a converse to the inequality? Does anything like that exist for the stable manifold theorem, if it does for linear systems? \todo{to do}
 
-(how to say that the exponential bound on asymptotic return rate is a good bound? i.e. most trajectories do eventually decay at that rate, and not much faster than it.)\todo{to do}
+The bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a long term bound on that rate is governed by the asymptotic resilience. Since the equilibrium represents a steady state, then any point which is very close to, but not quite at, the equilibrium represents a slightly perturbed state. Hence, the rate of decay can be thought of as the recovery rate from small perturbations. 
 
 %Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.
 
 \begin{remark}
-	Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a trajectory can initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} (Figure \ref{fig:reactivity}). However, with some large enough choice of $T$, the Stable Manifold Theorem implies that this short term growth negligibly affects the long term decay. 
+	Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a trajectory can initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} (Figure \ref{fig:reactivity}). However, with some large enough choice of $T$, the Stable Manifold Theorem still implies that short term growth negligibly affects long term decay. 
 \end{remark}
 
 \begin{figure}[ht]

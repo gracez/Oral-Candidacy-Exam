@@ -1,9 +1,9 @@
 \section{Critical Slowing Down}
 \label{sec:csd}
 
-Critical slowing down and associated early warning signals of critical transitions have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
+Critical slowing down and associated early warning signals of critical transitions \cite{schefferCriticalTransitionsNature2009, boettigerEarlyWarningSignals2013, georgeEarlyWarningSignals2021} have been seen in a variety of empirical contexts; in each case, certain detectable statistical trends in a time series appear leading up to a critical transition. A theoretical basis for these leading indicators is rooted in bifurcation theory. 
 
-It should be remarked that another set of early warning signals for certain critical transitions, not discussed further here, are the spatial pattern-formation mechanisms (e.g. systematic changes in vegetation patterns preceding desertification) \todo{citation}. 
+It should be remarked that another set of indicators for certain critical transitions, not discussed further here, are the spatial pattern-formation mechanisms (e.g. systematic formation of vegetation spots or stripes preceding desertification \cite{dakosSlowingSpatiallyPatterned2011, bastiaansenStablePlanarVegetation2019}). 
 
 %Asymptotic resilience helps determine a bound on the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, recovery typically becomes slower when closer to the verge of bifurcation. This is the core idea of critical slowing down. %, explained further in this section. 
 
@@ -17,7 +17,7 @@ It should be remarked that another set of early warning signals for certain crit
 
 \subsection{Local Bifurcation}
 
-For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we include only an extremely brief overview. 
+For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we include a brief overview focusing mainly on intuitive behavior. 
 
 Consider a parameterized family of ODEs
 %
@@ -43,9 +43,15 @@ Conceptually, a local bifurcation is a critical state at which a very small chan
 	A \textbf{local bifurcation} occurs at ${\displaystyle (x_{0}, p_{0})}$ if the Jacobian matrix ${\displaystyle {\mathbf{D}f(x_{0},p _{0})}}$ has an eigenvalue with zero real part. Note this could either be a real eigenvalue $\lambda = 0$ or it could be a pair of imaginary eigenvalues $\lambda = \pm \omega i$. In the former case, a \textbf{saddle-node} or \textbf{fold} bifurcation occurs. In the latter, a \textbf{Hopf} bifurcation occurs. \qed
 \end{definition}
 
-For simplicity, the term saddle-node bifurcation used here subsumes what are commonly termed transcritical and pitchfork bifurcations, while usage may vary between different authors. However, the distinction between the three categories is useful from an applied point of view, because they reflect different behavior. Briefly, a true \textbf{saddle-node/fold bifurcation}, which is neither of the other two types, involves the simultaneous creation or destruction of two equilibria -- it has also been called a ``blue-sky" bifurcation, because two points appear out of or disappear into the blue sky. A \textbf{pitchfork bifurcation}, is similar, but there is already an existing rest point, so that the system switches locally between having one or three rest points; pitchfork bifurcations only occur in sufficiently symmetrical systems, a scenario that does not typically occur in ecological applications. Finally, a \textbf{transcritical bifurcation} involves no new birth or death of rest points; instead, a stable and an unstable rest point collide and exchange stabilities with each other. 
+For simplicity, the term saddle-node bifurcation used here subsumes what are commonly termed transcritical and pitchfork bifurcations, while usage may vary between different authors. However, the distinction between the three categories is useful from an applied point of view, because they reflect different behavior. 
 
-A \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit is created or destroyed. 
+Briefly, a true \textbf{saddle-node/fold bifurcation}, which is neither of the other two types, involves the simultaneous creation or destruction of two equilibria -- it has also been called a ``blue-sky" bifurcation, because two points appear out of or disappear into the blue sky. Saddle-node bifurcations are often catastrophic events whose reversal is difficult or impossible. A prototypical example appears in consumer-resource models (e.g. a population of fish under harvesting pressure). As the consumption/harvesting rate increases, the range of sustainable population sizes shrinks. When the two endpoints of the range collide, the sustainable region disappears, suddenly implying population extinction. 
+
+A \textbf{pitchfork bifurcation}, is similar, but there is already an existing rest point, so that the system switches locally between having one or three rest points; pitchfork bifurcations only occur in sufficiently symmetrical systems, a scenario that does not commonly occur in ecological applications. 
+
+A \textbf{transcritical bifurcation} involves no new birth or death of rest points; instead, a stable and an unstable rest point collide and exchange stabilities with each other. An example occurs in compartmental models of infectious disease transmission. When a parameter known as the basic reproduction number, $R_0$, is increased past a critical value of 1, the disease-free equilibrium destabilizes, bequeathing stability to an endemic equilibrium instead. Transcritical bifurcations tend to be relatively gradual rather than catastrophic transitions -- for instance, for $R_0$ slightly above 1, the new endemic state involves a low prevalence of disease; further, if $R_0$ is decreased back below 1, reign of the disease-free equilibrium is reinstated. 
+
+Finally, a \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit is created or destroyed. As an example, see Figure \ref{fig:predator_prey_reachable_sets}, where an attracting cycle representing oscillating predator and prey populations is born when the parameter $K$ is somewhere between 3 and 4.
 
 %\begin{example}
 %	Consider a simple harvesting model $$x' = x(1-x)-h.$$
@@ -71,11 +77,6 @@ A \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit
 %	
 %\end{example}
 
-%but some authors may define saddle-node bifurcations to exclude transcritical and pitchfork bifurcations. The distinction between the three categories is useful from an applied point of view, so they are reviewed next here. 
-
-
-
-%Add an example -- SIS infectious disease model, with transcritical bifurcation. 
 
 %Examples of bifurcation types, normal forms?
 %
@@ -86,7 +87,16 @@ A \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit
 
 From the previous subsection, we know that local bifurcations are characterized by an eigenvalue's real part approaching and passing through zero. For a stable rest point, all of whose eigenvalues' real parts are negative, this necessarily means it is the dominant eigenvalue's real part which passes through zero. Hence, local bifurcation involving an abrupt change to a steady state is characterized by asymptotic resilience going to zero. We also know that asymptotic resilience provides a bound on long term recovery rates from small perturbations. So, leading up to the bifurcation, recovery rates tend to slow, and this phenomenon is termed critical slowing down. 
 
-Since real world systems frequently face natural perturbations, this slowing down of recovery rate ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to tipping. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to stay more similar to its next state, so auto-correlation increases as well (Figure \ref{fig:csd}).
+Since real world systems frequently face natural perturbations, this slowing down of recovery rate ought to be empirically observable -- indeed, variance and auto-correlation in the system state tend to increase leading up to bifurcation. Intuitively speaking, this is because a slow-recovering system stays far away from the mean longer, so variance increases; and because the current state of a slowly moving system tends to correlate more to its future state, so auto-correlation increases as well (Figure \ref{fig:csd}).
+
+\begin{figure}[ht]
+	\centering
+	\captionsetup{width=0.9\linewidth}
+	\includegraphics[width=\textwidth]{figs/critical_slowing_down}
+	\caption{Critical slowing down and early warning signals. Left: far from bifurcation, high asymptotic resilience, low variance, and low auto-correlation. Right: close to bifurcation, low asymptotic resilience, high variance, and high auto-correlation. Figure reproduced from \cite{schefferEarlywarningSignalsCritical2009a}.}
+	
+	\label{fig:csd}
+\end{figure} 
 
 Formal derivations of the existence of these early warning signals (increased variance and increased auto-correlation) were difficult for me to find in the literature. 
 %
@@ -94,24 +104,11 @@ An approach has been taken in \cite{schefferCriticalTransitionsNature2009}, appr
 $$|x_{n+1}-x^{\ast}| = e^{\lambda \Delta t}|x_n-x^{\ast}|+\sigma\epsilon_n.$$
 However, it requires the simplifying assumption that return between disturbances is precisely exponential. Another approach has been taken in \cite{ritchieEarlywarningIndicatorsDynamic2016} where the trajectory is modelled as a continuous stochastic mean-reverting process (an Ornstein-Uhlenbeck process), which is the continuous analog of the auto-regressive process of the previously mentioned authors. But this has the same underlying issue of a fundamental simplifying approximation. 
 
-Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} emphasize that asymptotic resilience crucially ignores short term behavior. While decay rates are exponential in the limit, perturbations could actually amplify in the short term, and this amplification could happen for arbitrarily small perturbations (also see the end of subsection \ref{sec:asymp_res}). As a result, simplifying assumptions such as precise exponential decay cannot always be applied reasonably. 
+Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} emphasize that asymptotic resilience crucially ignores short term behavior. For example, while decay rates are exponential in the limit, perturbations could actually amplify in the short term, and this amplification could happen for arbitrarily small perturbations (see discussion about reactivity at the end of subsection \ref{sec:asymp_res}). As a result, simplifying assumptions like precise exponential decay are not always reasonable assumptions. 
 
-Typically, discussions of early warning indicators are framed from within applied point of view. Empirically, increased variance and increased auto-correlation have indeed been observed in many example systems, and this has often been taken as evidence of their existence in general. Yet, one drawback to the informal treatment is that the precise conditions under which these early warning signals arise, and hence their reliability across different systems and circumstances, remains unclear. 
+Typically, discussions of early warning indicators are framed from within applied point of view. Empirically, increased variance and increased auto-correlation have indeed been observed in various example systems, and this has often been taken as evidence of their existence in general. Yet, one drawback to the informal treatment is that the precise conditions under which these early warning signals arise, and hence their reliability across different systems and circumstances, remain somewhat unclear. 
 
-
-%The formal understanding requires future clarification. 
-
-
-%More formal statement of critical slowing down, and formal derivation of variance and auto-correlation after a small shock of size epsilon? (how? all the references that I have tend to discuss critical slowing down and early warning indicators fairly informally.) \todo{to do}
-
-\begin{figure}[ht]
-	\centering
-	\captionsetup{width=\linewidth}
-	\includegraphics[width=\textwidth]{figs/critical_slowing_down}
-	\caption{Critical slowing down and early warning signals. Figure reproduced from \cite{schefferEarlywarningSignalsCritical2009a}.}
-	
-	\label{fig:csd}
-\end{figure} 
+%mention flickering and increased skewness?
 
 
 
