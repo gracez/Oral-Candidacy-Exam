@@ -17,7 +17,7 @@ It should be remarked that another set of indicators for certain critical transi
 
 \subsection{Local Bifurcation}
 
-For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we include a brief overview focusing mainly on intuitive behavior. 
+For a detailed treatment of local bifurcation theory, see any standard reference. For the purposes of this paper, we include a brief overview focusing mainly on descriptive behavior. 
 
 Consider a parameterized family of ODEs
 %
@@ -51,7 +51,7 @@ A \textbf{pitchfork bifurcation}, is similar, but there is already an existing r
 
 A \textbf{transcritical bifurcation} involves no new birth or death of rest points; instead, a stable and an unstable rest point collide and exchange stabilities with each other. An example occurs in compartmental models of infectious disease transmission. When a parameter known as the basic reproduction number, $R_0$, is increased past a critical value of 1, the disease-free equilibrium destabilizes, bequeathing stability to an endemic equilibrium instead. Transcritical bifurcations tend to be relatively gradual rather than catastrophic transitions -- for instance, for $R_0$ slightly above 1, the new endemic state involves a low prevalence of disease; further, if $R_0$ is decreased back below 1, reign of the disease-free equilibrium is reinstated. 
 
-Finally, a \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit is created or destroyed. As an example, see Figure \ref{fig:predator_prey_reachable_sets}, where an attracting cycle representing oscillating predator and prey populations is born when the parameter $K$ is somewhere between 3 and 4.
+Finally, a \textbf{Hopf bifurcation} differs from all the others in that a periodic orbit is created or destroyed. As an example, see the predator-prey system in Figure \ref{fig:predator_prey_reachable_sets}. In this example, when $K$ (a parameter representing a carrying capacity for the prey species) equals 3, a steady state exists where both predator and prey populations have fixed sizes. When $K$ is increased to 4, the steady state is lost, while a periodic orbit, as in the classical Lotka-Volterra dynamic of oscillating predator and prey populations, is born.
 
 %\begin{example}
 %	Consider a simple harvesting model $$x' = x(1-x)-h.$$
@@ -106,7 +106,7 @@ However, it requires the simplifying assumption that return between disturbances
 
 Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} emphasize that asymptotic resilience crucially ignores short term behavior. For example, while decay rates are exponential in the limit, perturbations could actually amplify in the short term, and this amplification could happen for arbitrarily small perturbations (see discussion about reactivity at the end of subsection \ref{sec:asymp_res}). As a result, simplifying assumptions like precise exponential decay are not always reasonable assumptions. 
 
-Typically, discussions of early warning indicators are framed from within applied point of view. Empirically, increased variance and increased auto-correlation have indeed been observed in various example systems, and this has often been taken as evidence of their existence in general. Yet, one drawback to the informal treatment is that the precise conditions under which these early warning signals arise, and hence their reliability across different systems and circumstances, remain somewhat unclear. 
+Typically, discussions of early warning indicators are framed within an applied point of view. Empirically, increased variance and increased auto-correlation have indeed been observed in various example systems, and this has often been taken as evidence of their existence in general. Yet, one drawback to the informal treatment is that the precise conditions under which these early warning signals arise, and hence their reliability across different systems and circumstances, remain unclear. 
 
 %mention flickering and increased skewness?
 
