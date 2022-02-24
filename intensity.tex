@@ -4,14 +4,15 @@ Asymptotic resilience notably relies on linearizing at a point attractor. In con
 
 First of all, the idea of perturbation will now be represented by what is known as a \textbf{control function} added to an underlying vector field. This construction allows for perturbations which are not necessarily small and isolated, but possibly large and continuous, reflecting important types of perturbation that commonly occur in ecological and other applied settings, such as environmental forces or human-driven pressure (intentional or unintentional) on an ecosystem. We assume that the control function $$g: I \subset \mathbb{R} \to \mathbb{R}^n$$ is taken from the space of essentially bounded (i.e. bounded except on a set of measure 0) measurable functions $L^\infty (I,\mathbb{R}^n)$, where the norm is 
 $$||g||_\infty = \inf\{C \geq 0  :  ||g(x)|| \leq C  \text{ for almost every } x \in I \}.$$ 
-We also assume $g$ is locally integrable (i.e. integrable on every compact subset of its domain $I$). These mild assumptions will ensure that $g$ is nice enough for our perturbed system to remain well-defined. Next, we formalize how the perturbation is added to an underlying system. 
+%These mild assumptions will ensure that $g$ is nice enough for our perturbed system to remain well-defined. 
+Next, we formalize how the perturbation is added to an underlying system. 
 
 \begin{definition}
-	A \textbf{bounded control system} \todo{is this ok terminology?} is a non-autonomous ODE 
+	A \textbf{bounded control system} is a non-autonomous ODE 
 	\begin{equation}
 		\label{eqn:control_ode}x' = f(x) + g(t)
 	\end{equation}
-	where $f: U \subset \mathbb{R}^n \to \mathbb{R}^n$ is locally Lipschitz, $g \in L^\infty (I,\mathbb{R}^n)$ is locally integrable. \qed
+	where $f: U \subset \mathbb{R}^n \to \mathbb{R}^n$ is locally Lipschitz, $g \in L^\infty (I,\mathbb{R}^n)$. \qed
 \end{definition}
 
 Here, the underlying system is thought of as an ODE $x'=f(x)$; but it is altered by adding a perturbation $g(t)$ to the vector field $f(x)$ on the right hand side. The effect of $g(t)$ is to adjust, at every point in time, the path of solutions somewhat away from what would have been their original trajectory. 
