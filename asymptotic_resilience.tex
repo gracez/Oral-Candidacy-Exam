@@ -19,18 +19,19 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 	%
 	$$|e^{t\mathbf{A}}x| \leq Ce^{L t}|x|.$$ 
 	%
-	Further, in the long term $C$ can be taken to equal $1$. That is, there is some $T \geq 0$ such that
+	And in the long term $C$ can be taken to equal $1$. That is, there is some $T \geq 0$ such that
 	%
 	$$|e^{t\mathbf{A}}x| \leq e^{L t}|x| ~ ~\text{ for all } t \geq T.$$
+	
+	Further, in the limit, and for all $x$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
 	%
-%	Finally, in the limit, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience
-%	%
-%	$$\lim\limits_{t \to \infty} |e^{tA}x| = Ce^{res(A) t}|x| ~ ~\text{ for all } t \geq T.$$ \todo{make sure this last part is true and include a proof in the appendix}
-	%
+	$$\lim\limits_{t \to \infty} |e^{tA}x| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
+	
 	 \qed
 \end{theorem}
 
-TO DO: Is there a converse to the inequality? how to say that this is a good bound? i.e. for almost all trajectories, and in the limit as $t\to \infty$, they do eventually decay at that rate, rather than much faster than it. I feel like this is true, but I can't find a statement of it in a book. \todo{to do}
+
+%TO DO: Is there a converse to the inequality? how to say that this is a good bound? i.e. for almost all trajectories, and in the limit as $t\to \infty$, they do eventually decay at that rate, rather than much faster than it. I feel like this is true, but I can't find a statement of it in a book. \todo{to do}
 
 %\begin{theorem}
 %	For an $n \times n$ matrix $\mathbf{A}$, if $Re(\lambda) < L < 0$ for all eigenvalues $\lambda$ of $\mathbf{A}$, then there is some constant $T>0$ such that for all $x \in \mathbb{R}^n$ and $t \geq T$,
@@ -38,7 +39,7 @@ TO DO: Is there a converse to the inequality? how to say that this is a good bou
 %	$$|e^{tA}x| \leq e^{L t}|x|.$$  \qed
 %\end{theorem}
 
-Note the operator $e^{t\mathbf{A}}$ in the left hand side is exactly the flow $\varphi_t$ for the linear system $x' = \mathbf{A}x$. So this theorem says that, in the long term, trajectories must decay to the origin at an exponential rate. Further, a bound on that rate is governed by the asymptotic resilience. 
+Note the operator $e^{t\mathbf{A}}$ in the left hand side is exactly the flow $\varphi_t$ for the linear system $x' = \mathbf{A}x$. So this theorem says that, in the long term, trajectories must decay to the origin at an exponential rate governed by the asymptotic resilience. 
 
 %A related theorem serves as a converse of sorts, and says that the exponential bound is a good bound, so that trajectories typically do not decay significantly faster. A proof is contained in the appendix.  \todo{Is this correct? Need to work through a proof carefully. I can't find this in a book.}
 %
@@ -54,7 +55,7 @@ Note the operator $e^{t\mathbf{A}}$ in the left hand side is exactly the flow $\
 
 %\todo{write proof.}
 
-For nonlinear systems, similar bounds on decay rate is justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, at sufficiently nice rest points, the linear approximation is a good approximation. %, also a standard theoretical result. 
+For nonlinear systems, similar results for decay rate are justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, at sufficiently nice rest points, the linear approximation is a good approximation. 
 %
 %The theorem states that there is a local  Moreover, the flow restricted to the stable and the unstable manifolds has exponential (hyperbolic) estimates similar to the inequalities in display (4.1)
 %
@@ -80,12 +81,16 @@ A special case of the Stable Manifold Theorem is stated here, while a full versi
 	%
  	and for some $T \geq 0$, $C$ can be taken to equal $1$
 	%
-	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$\qed
+	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$
+	Finally, in the limit, and for all $x\in N$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
+	%
+	$$\lim\limits_{t \to \infty} \phi_t(x)| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
+	\qed
 \end{theorem}
 
-TO DO: does that last statement about long term $C=1$ hold? Can't find this in a book but I feel like it should be true. And also, what about a converse to the inequality? Does anything like that exist for the stable manifold theorem, if it does for linear systems? \todo{to do}
+%TO DO: does that last statement about long term $C=1$ hold? Can't find this in a book but I feel like it should be true. And also, what about a converse to the inequality? Does anything like that exist for the stable manifold theorem, if it does for linear systems? \todo{to do}
 
-The bound on decay rate stated in the last line of the theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, and a long term bound on that rate is governed by the asymptotic resilience. Since the equilibrium represents a steady state, then any point which is very close to, but not quite at, the equilibrium represents a slightly perturbed state. Hence, the rate of decay can be thought of as the recovery rate from small perturbations. 
+The theorem implies that any trajectory beginning sufficiently close to equilibrium decays toward equilibrium at an exponential rate, where that rate is determined in the long term by asymptotic resilience. Any point which is very close to, but not quite at, the equilibrium represents a state slightly perturbed away from steady state. Hence, the rate of decay can be thought of as the recovery rate from a small perturbation. 
 
 %Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.
 
