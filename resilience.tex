@@ -20,9 +20,9 @@ The Lipschitz condition guarantees well-defined solutions, but only for sufficie
 	$x'(t) = f(x(t))$, \hspace{0.25in} $x(0) = x_0$. 
 \end{center}
 
-Depending on context, $f$ may be globally Lipschitz continuous, in which case trajectories are defined for as long as they remain within the domain $U$. If no trajectories leave $U$, then $\varphi$ is a \textbf{global flow}, meaning it is defined for all time. In this paper we will follow \cite{meyerMetricPropertiesAttractors2019} by assuming for simplicity that the flow is defined on any time domain of interest. 
+Depending on context, $f$ may be globally Lipschitz continuous, in which case trajectories are defined for as long as they remain within the domain $U$. If no trajectories grow unbounded in $U$, then $\varphi$ is a \textbf{global flow}, meaning it is defined for all time. In this paper we will follow \cite{meyerMetricPropertiesAttractors2019} by assuming for simplicity that the flow is defined on any time domain of interest. 
 
-Additionally, we will be taking the following notational conveniences. For a flow $\varphi$, we will denote the time-$t$ map as $\varphi_t: U \to U$, $x_0 \mapsto \varphi(t,x_0)$. We will naturally extend this notation to allow set-valued inputs $S\subset U$: $$\varphi_t(S) = \{x\in U ~| ~\varphi_t(x_0) = x \text{ for some } x_0 \in S\}.$$
+Additionally, we will take the following notational conveniences. For a flow $\varphi$, we will denote the time-$t$ map as $\varphi_t: U \to U$, $x_0 \mapsto \varphi(t,x_0)$. We will naturally extend this notation to allow set-valued inputs $S\subset U$: $$\varphi_t(S) = \{x\in U ~| ~\varphi_t(x_0) = x \text{ for some } x_0 \in S\}.$$
 
 In other words, the map $\varphi_t$ outputs the location of any input point after it flows for $t$ units of time. If the input is a set, then the output is also a set, consisting of all the locations reached at time $t$.
 

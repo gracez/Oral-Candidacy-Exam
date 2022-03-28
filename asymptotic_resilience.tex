@@ -23,9 +23,9 @@ For the linearized system $x'= \textbf{A}x$, asymptotic resilience estimates the
 	%
 	$$|e^{t\mathbf{A}}x| \leq e^{L t}|x| ~ ~\text{ for all } t \geq T.$$
 	
-	Further, in the limit, and for all $x$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
+	%Further, in the limit, and for all $x$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
 	%
-	$$\lim\limits_{t \to \infty} |e^{tA}x| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
+	%$$\lim\limits_{t \to \infty} |e^{tA}x| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
 	
 	 \qed
 \end{theorem}
@@ -55,7 +55,7 @@ Note the operator $e^{t\mathbf{A}}$ in the left hand side is exactly the flow $\
 
 %\todo{write proof.}
 
-For nonlinear systems, similar results for decay rate are justified by the Stable Manifold Theorem, a fundamental result in dynamical systems theory which says that, at sufficiently nice rest points, the linear approximation is a good approximation. 
+For nonlinear systems, similar results for decay rate are justified by the Stable Manifold Theorem, a fundamental result which says that, at sufficiently nice rest points, the linear approximation is a good approximation. 
 %
 %The theorem states that there is a local  Moreover, the flow restricted to the stable and the unstable manifolds has exponential (hyperbolic) estimates similar to the inequalities in display (4.1)
 %
@@ -82,9 +82,9 @@ A special case of the Stable Manifold Theorem is stated here, while a full versi
  	and for some $T \geq 0$, $C$ can be taken to equal $1$
 	%
 	$$|\phi_t(x)| \leq e^{L t}|x| ~ ~\text{ for } t \geq T.$$
-	Finally, in the limit, and for all $x\in N$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
+	%Finally, in the limit, and for all $x\in N$ except on a set of measure 0, the inequality can be replaced with equality and $L$ can be replaced with asymptotic resilience.
 	%
-	$$\lim\limits_{t \to \infty} \phi_t(x)| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
+	%$$\lim\limits_{t \to \infty} \phi_t(x)| = e^{Re(\lambda_1) t}|x| ~ ~\text{ for almost all } x.$$ \todo{make sure this last part is true and include a proof in the appendix}
 	\qed
 \end{theorem}
 
@@ -95,14 +95,14 @@ The theorem implies that any trajectory beginning sufficiently close to equilibr
 %Hence, asymptotic resilience bounds the rate of return to equilibrium after a small perturbation to the system. Because local bifurcation is characterized by $Re(\lambda_1)$ passing through zero, the system recovers slower when nearer to bifurcation. This is the core idea of critical slowing down, which will be explained further in Section \ref{sec:csd}.
 
 \begin{remark}
-	Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a trajectory can initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997a} (Figure \ref{fig:reactivity}). However, with some large enough choice of $T$, the Stable Manifold Theorem still implies that short term growth negligibly affects long term decay. 
-\end{remark}
+	Note that trajectories need not decay monotonically in distance to the rest point, not even for linear systems. For instance, a trajectory can initially amplify in magnitude -- a phenomenon termed \textbf{reactivity} by Neubert and Caswell in \cite{neubertAlternativesResilienceMeasuring1997} (Figure \ref{fig:reactivity}). However, with some large enough choice of $T$, the Stable Manifold Theorem still implies that short term growth negligibly affects long term decay. 
+\end{remark}	
 
 \begin{figure}[ht]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.8\textwidth]{figs/positive_reactivity_real_example}
-	\caption{Phase portraits of two linear systems $x' = \textbf{A}x$. (a) All trajectories decay monotonically in magnitude. (b) There are trajectories beginning arbitrarily close to the origin which initially increase in magnitude. Notice that both matrices have the same eigenvalues $\lambda = -1, -2$; hence asymptotic resilience cannot tell whether an equilibrium is reactive. Example reproduced from \cite{neubertAlternativesResilienceMeasuring1997a}.}
+	\caption{Phase portraits of two linear systems $x' = \textbf{A}x$. (a) All trajectories decay monotonically in magnitude. (b) There are trajectories beginning arbitrarily close to the origin which initially increase in magnitude. Notice that both matrices have the same eigenvalues $\lambda = -1, -2$; hence asymptotic resilience cannot tell whether an equilibrium is reactive. Example reproduced from \cite{neubertAlternativesResilienceMeasuring1997}.}
 	
 	\label{fig:reactivity}
 \end{figure} 
