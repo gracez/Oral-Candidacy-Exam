@@ -6,6 +6,6 @@ There is an accompanying [presentation](https://drive.google.com/file/d/1qmrwkfH
 
 I think maybe the first portion of the slides succeeds in this goal at least.
 
-If you are wondering why I have a veterinarian on my committee, it's because I am motivated deep down by understanding modern tipping points in nature, including in infectious disease ecology.
+If you are wondering why I have a wildlife veterinarian on my committee, it's because I am motivated deep down by understanding modern tipping points in nature, including in infectious disease ecology.
 
 The LaTeX source for the paper is contained in the `tex` folder.
